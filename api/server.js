@@ -1,16 +1,19 @@
 const express = require('express');
 const mysql = require('mysql2');
 
-const app = express();
-const port = process.env.PORT || 3000;
+require('dotenv').config();
 
 // Database connection configuration
 const db = mysql.createConnection({
-    host: 'database-1.cluster-chlqdt76dknd.us-east-1.rds.amazonaws.com', // Replace with your DB host
-    user: 'admin', // Replace with your DB user
-    password: 'FQF44]mc0HU4t.wg+1[oGL(]]44+', // Replace with your DB password
-    database: 'PMI' // Replace with your DB name
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME
 });
+
+const app = express();
+const port = process.env.PORT || 3000;
+
 
 // Connect to the database
 db.connect((err) => {
