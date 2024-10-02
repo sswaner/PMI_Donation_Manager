@@ -6,6 +6,7 @@ const App = () => {
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
+    localStorage.setItem('language', lng); // Save the user's language preference
   };
 
   return (
