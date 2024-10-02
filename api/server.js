@@ -1,5 +1,6 @@
 const express = require('express');
 const mysql = require('mysql2');
+const path = require('path');
 
 require('dotenv').config();
 
@@ -27,6 +28,9 @@ db.connect((err) => {
 
 // Middleware to parse JSON requests
 app.use(express.json());
+
+// Serve static files from the React app, unsure how this will react with the above .use()
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 // Route to get contact details by ContactID
 app.get('/contacts/:id', (req, res) => {
@@ -324,8 +328,14 @@ app.get('/accounts/overview/:id', (req, res) => {
     });
 });
 
+// Any request that doesn't match your API routes will serve the React app
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
+
 // Start the server
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
 
+1
