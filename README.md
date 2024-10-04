@@ -26,3 +26,15 @@
 ## Next Steps:
  - work on building login
    - get test accounts to login and future testing for access levels
+
+# Shawn's Additions
+## Node changes
+ - reconfigured to use routes and controllers
+ - cleaned up database connection (uses .env file in /api)
+
+## Database
+ - Added accountID 2 to the Accounts table
+
+## Next Steps
+ - Add more test data to the database
+ - Modify API to accept changes
