@@ -1,6 +1,52 @@
 {
     "greeting": "Halo React",
-    "language change en": "Bahasa Inggris",
-    "language change id": "Bahasa Indonesia"
+    "language change en": "Beralih ke Bahasa Inggris",
+    "language change id": "Beralih ke Bahasa Indonesia",
+    "portfolio": "Portofolio Saya",
+    "account": "Manajemen Akun",
+    "account add": "- Tambah Akun",
+    "account search": "- Pencarian Akun",
+    "account report": "- Laporan Akun",
+    "donation": "Donasi",
+    "donation search": "- Pencarian Donasi",
+    "campaign": "Kampanye",
+    "campaign manage": "- Manajemen Kampanye",
+    "campaign list": "- Daftar Kampanye",
+    "campaign add": "- Tambah Kampanye",
+    "campaign report": "- Laporan Kampanye",
+    "event": "Manajemen Acara",
+    "event view": "- Acara",
+
+    "name": "Nama:",
+    "preferredName": "Nama Panggilan:",
+    
+    "address": "Alamat",
+    "jalan": "Jalan:",
+    "no.": "No.:",
+    "city": "Kota:",
+    "province": "Provinsi:",
+    "postalCode": "Kode Pos:",
+    "leadStatus": "Status Prospek:",
+    
+    "select province": "-- Pilih Provinsi --",
+    "jakarta": "Jakarta",
+    "westJava": "Jawa Barat",
+    "centralJava": "Jawa Tengah",
+    "eastJava": "Jawa Timur",
+    
+    "select status": "-- Pilih Status --",
+    "contacted": "Dihubungi",
+    "qualified": "Memenuhi Syarat",
+    "future outreach": "Jangkauan di Masa Depan",
+    "unqualified": "Tidak Memenuhi Syarat",
+
+    "contact": "Kontak",
+    "email": "E-mail:",
+    "preferred": "Disukai",
+    "mobile": "Nomor HP:",
+    "organization": "Organisasi:",
+    "position": "Jabatan:",
+
+    "save": "Simpan"
 }
   

@@ -1,6 +1,51 @@
 {
     "greeting": "Hello React",
-    "language change en": "English",
-    "language change id": "Indonesian"
+    "language change en": "Switch to English",
+    "language change id": "Switch to Indonesian",
+    "portfolio": "My Portfolio",
+    "account": "Account Management",
+    "account add": "- Add Account",
+    "account search": "- Account Search",
+    "account report": "- Account Reports",
+    "donation": "Donations",
+    "donation search": "- Donations Search",
+    "campaign": "Campaign",
+    "campaign manage": "- Campaign Management",
+    "campaign list": "- Campaign List",
+    "campaign add": "- Add Campaign",
+    "campaign report": "- Campaign Reports",
+    "event": "Event Management",
+    "event view": "- Events",
+  
+    "name": "Name:",
+    "preferredName": "Preferred Name:",
 
+    "address": "Address",
+    "jalan": "Jalan:",
+    "no.": "No.:",
+    "city": "City:",
+    "province": "Province:",
+    "postalCode": "Postal Code:",
+    "leadStatus": "Lead Status:",
+    "email": "E-mail:",
+    
+    "select province": "-- Select Province --",
+    "jakarta": "Jakarta",
+    "westJava": "West Java",
+    "centralJava": "Central Java",
+    "eastJava": "East Java",
+    
+    "select status": "-- Select Status --",
+    "contacted": "Contacted",
+    "qualified": "Qualified",
+    "future outreach": "Future Outreach",
+    "unqualified": "Unqualified",
+
+    "contact": "Contact",
+    "preferred": "Preferred",
+    "mobile": "Mobile:",
+    "organization": "Organization:",
+    "position": "Position:",
+
+    "save": "Save"
 }

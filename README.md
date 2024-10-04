@@ -24,5 +24,5 @@
    - each element of text is written as {t('key tag')} and when the pages language is updated it pulls the text from the respective language's json
 
 ## Next Steps:
- - work on building login
-   - get test accounts to login and future testing for access levels
+ - building main page looking at an account in edit mode
+ 
