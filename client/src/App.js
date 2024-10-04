@@ -78,11 +78,41 @@ const App = () => {
                   <label htmlFor="province">{t("province")}
                     <select id="province" name="province">
                       <option value="">{t("select province")}</option>
-                      <option value="jakarta">{t("jakarta")}</option>
-                      <option value="westJava">{t("westJava")}</option>
-                      <option value="centralJava">{t("centralJava")}</option>
+                      <option value="Aceh">{t("Aceh")}</option>
+                      <option value="Bali">{t("Bali")}</option>
+                      <option value="Bangka Belitung Islands">{t("Bangka Belitung Islands")}</option>
+                      <option value="Banten">{t("Banten")}</option>
+                      <option value="Bengkulu">{t("Bengkulu")}</option>
+                      <option value="Central Java">{t("Central Java")}</option>
+                      <option value="Central Kalimantan">{t("Central Kalimantan")}</option>
+                      <option value="Central Sulawesi">{t("Central Sulawesi")}</option>
+                      <option value="East Java">{t("East Java")}</option>
+                      <option value="East Kalimantan">{t("East Kalimantan")}</option>
+                      <option value="East Nusa Tenggara">{t("centralJava")}</option>
                       <option value="eastJava">{t("eastJava")}</option>
-                      {/* Add other provinces as needed */}
+                      <option value="Gorontalo">{t("Gorontalo")}</option>
+                      <option value="Jakarta">{t("Jakarta")}</option>
+                      <option value="Jambi">{t("Jambi")}</option>
+                      <option value="Lampung">{t("Lampung")}</option>
+                      <option value="Maluku">{t("Maluku")}</option>
+                      <option value="North Kalimantan">{t("North Kalimantan")}</option>
+                      <option value="North Maluku">{t("North Maluku")}</option>
+                      <option value="North Sulawesi">{t("North Sulawesi")}</option>
+                      <option value="North Sumatra">{t("North Sumatra")}</option>
+                      <option value="Papua">{t("Papua")}</option>
+                      <option value="Riau">{t("Riau")}</option>
+                      <option value="Riau Islands">{t("Riau Islands")}</option>
+                      <option value="South Kalimantan">{t("South Kalimantan")}</option>
+                      <option value="South Sulawesi">{t("South Sulawesi")}</option>
+                      <option value="South Sumatra">{t("South Sumatra")}</option>
+                      <option value="Southeast Sulawesi">{t("Southeast Sulawesi")}</option>
+                      <option value="West Java">{t("West Java")}</option>
+                      <option value="West Kalimantan">{t("West Kalimantan")}</option>
+                      <option value="West Nusa Tenggara">{t("West Nusa Tenggara")}</option>
+                      <option value="West Papua">{t("West Papua")}</option>
+                      <option value="West Sulawesi">{t("West Sulawesi")}</option>
+                      <option value="West Sumatra">{t("West Sumatra")}</option>
+                      <option value="Yogyakarta">{t("Yogyakarta")}</option>
                     </select>
                   </label>
                 </div>
