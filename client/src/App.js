@@ -15,7 +15,7 @@ const App = () => {
       <div className="tab-container">
         <div className="tab-nav">
           <button onClick={() => handleTabChange('portfolio')}>{t('portfolio')}</button>
-          <button onClick={() => handleTabChange('account')}>{t('account')}</button>
+          <button onClick={() => handleTabChange('account manage')}>{t('account manage')}</button>
           <button className="sub-tab" onClick={() => handleTabChange('account add')}>{t('account add')}</button>
           <button className="sub-tab" onClick={() => handleTabChange('account search')}>{t('account search')}</button>
           <button className="sub-tab" onClick={() => handleTabChange('account report')}>{t('account report')}</button>
@@ -29,157 +29,99 @@ const App = () => {
           <button onClick={() => handleTabChange('event')}>{t('event')}</button>
           <button className="sub-tab" onClick={() => handleTabChange('event view')}>{t('event view')}</button>
         </div>
-      
 
-        <div className="tab-content">
+        <div>
           <button onClick={() => changeLanguage('en')}>{t('language change en')}</button>
           <button onClick={() => changeLanguage('id')}>{t('language change id')}</button>
-          <h1>{t('greeting')}</h1>
+        </div>
+
+        <div className="tab-content">
+          
+          <h1>{t('donor account')}</h1>
 
           <form>
+            {/*maybe change labels to headings for accesibility*/}
             <div className="form-column">
               <div className="form-name">
                 <div>
                   <label htmlFor="name">{t("name")}
                     <input type="text" id="name" name="name" />
-                  </label>
-                  
+                  </label> 
                 </div>
 
                 <div>
-                  <label htmlFor="preferredName">{t("preferredName")}
-                    <input type="text" id="preferredName" name="preferredName" />
+                  <label htmlFor="giving potential">{t("giving potential")}
+                    <input type="text" id="giving potential" name="giving potential" />
+                  </label> 
+                </div>
+
+                <div>
+                  <label htmlFor="prior donations">{t("prior donations")}
+                    <input type="text" id="prior donations" name="prior donations" />
                   </label>
-                  
+                </div>
+
+                <div>
+                  <label htmlFor="primary location">{t("primary location")}
+                    <input type="text" id="primary location" name="primary location" />
+                  </label>
                 </div>
               </div>
 
-              <div className="form-address">
-                <h2>{t("address")}</h2>
-                <div>
-                  <label htmlFor="jalan">{t("jalan")}
-                    <input type="text" id="address" name="address" />
-                  </label>
-                </div>
-
-                <div>
-                  <label htmlFor="no.">{t("no.")}
-                    <input type="text" id="no" name="no" />
-                  </label>
-                </div>
-
-                <div>
-                  <label htmlFor="city">{t("city")}
-                    <input type="text" id="city" name="city" />
-                  </label>
-                </div>
-
-                <div>
-                  <label htmlFor="province">{t("province")}
-                    <select id="province" name="province">
-                      <option value="">{t("select province")}</option>
-                      <option value="Aceh">{t("Aceh")}</option>
-                      <option value="Bali">{t("Bali")}</option>
-                      <option value="Bangka Belitung Islands">{t("Bangka Belitung Islands")}</option>
-                      <option value="Banten">{t("Banten")}</option>
-                      <option value="Bengkulu">{t("Bengkulu")}</option>
-                      <option value="Central Java">{t("Central Java")}</option>
-                      <option value="Central Kalimantan">{t("Central Kalimantan")}</option>
-                      <option value="Central Sulawesi">{t("Central Sulawesi")}</option>
-                      <option value="East Java">{t("East Java")}</option>
-                      <option value="East Kalimantan">{t("East Kalimantan")}</option>
-                      <option value="East Nusa Tenggara">{t("centralJava")}</option>
-                      <option value="eastJava">{t("eastJava")}</option>
-                      <option value="Gorontalo">{t("Gorontalo")}</option>
-                      <option value="Jakarta">{t("Jakarta")}</option>
-                      <option value="Jambi">{t("Jambi")}</option>
-                      <option value="Lampung">{t("Lampung")}</option>
-                      <option value="Maluku">{t("Maluku")}</option>
-                      <option value="North Kalimantan">{t("North Kalimantan")}</option>
-                      <option value="North Maluku">{t("North Maluku")}</option>
-                      <option value="North Sulawesi">{t("North Sulawesi")}</option>
-                      <option value="North Sumatra">{t("North Sumatra")}</option>
-                      <option value="Papua">{t("Papua")}</option>
-                      <option value="Riau">{t("Riau")}</option>
-                      <option value="Riau Islands">{t("Riau Islands")}</option>
-                      <option value="South Kalimantan">{t("South Kalimantan")}</option>
-                      <option value="South Sulawesi">{t("South Sulawesi")}</option>
-                      <option value="South Sumatra">{t("South Sumatra")}</option>
-                      <option value="Southeast Sulawesi">{t("Southeast Sulawesi")}</option>
-                      <option value="West Java">{t("West Java")}</option>
-                      <option value="West Kalimantan">{t("West Kalimantan")}</option>
-                      <option value="West Nusa Tenggara">{t("West Nusa Tenggara")}</option>
-                      <option value="West Papua">{t("West Papua")}</option>
-                      <option value="West Sulawesi">{t("West Sulawesi")}</option>
-                      <option value="West Sumatra">{t("West Sumatra")}</option>
-                      <option value="Yogyakarta">{t("Yogyakarta")}</option>
-                    </select>
-                  </label>
-                </div>
-
-                <div>
-                  <label htmlFor="postalCode">{t("postalCode")}
-                    <input type="text" id="postalCode" name="postalCode" />
-                  </label>
-                </div>
-              </div>
-            </div>
-
-            <div className="form-column">
-              <div className="form-lead">
-                <label htmlFor="leadStatus">{t("leadStatus")}
-                  <select id="leadStatus" name="leadStatus">
-                    <option value="">{t("select status")}</option>
-                    <option value="contacted">{t("contacted")}</option>
-                    <option value="qualified">{t("qualified")}</option>
-                    <option value="future outreach">{t("future outreach")}</option>
-                    <option value="unqualified">{t("unqualified")}</option>
-                    {/* Add other lead statuses as needed */}
+              <div className="form-select">
+                <label htmlFor="segment">{t("segment")}
+                  <select id="segment" name="segment">
+                      <option value="">{t("select segment")}</option>
+                      <option value="manufacturing">{t("manufacturing")}</option>
+                      {/* Add other languages as needed */}
                   </select>
                 </label>
+                <label htmlFor="account manager">{t("account manager")}
+                  <select id="account manager" name="account manager">
+                      <option value="">-- {t("select")} {t("manager")} --</option>
+                  </select>
+                </label>
+                <div>
+                  <label htmlFor="SIKAP ID">{t("SIKAP ID")}
+                    <input type="text" id="SIKAP ID" name="SIKAP ID" />
+                  </label>
+                </div>
               </div>
 
-              <div className="form-contact">
-              <h2>{t("contact")}</h2>
-                <div>
-                  <label htmlFor="emailPreferred">{t("email")}
-                    <input type="email" id="email" name="email" />
-                    <div className="checkbox-group">
-                      <input type="checkbox" id="emailPreferred" name="emailPreferred" /> {t('preferred')}
-                    </div>
-                  </label>
-                </div>
-
-                <div>
-                  <label htmlFor="mobile">{t("mobile")}
-                    <input type="text" id="mobile" name="mobile" />
-                    <div className="checkbox-group">
-                      <input type="checkbox" id="mobilePreferred" name="mobilePreferred"/> {t('preferred')}
-                    </div>
-                  </label>
-                </div>
-
-                <div>
-                  <label htmlFor="organization">{t("organization")}
-                    <input type="text" id="organization" name="organization" />
-                  </label>
-                  
-                </div>
-
-                <div>
-                  <label htmlFor="position">{t("position")}
-                    <input type="text" id="position" name="position" />
-                  </label>
-                  
-                </div>
+              <div>
+                <label htmlFor="notes">{t("notes")}</label>
+                <textarea id="notes" name="notes" rows="10" cols="50"></textarea>
               </div>
+
+              <div>
+                <label htmlFor="created">{t("created")}</label>
+              </div>
+
+              <div>
+                <label htmlFor="modified">{t("modified")}</label>
+              </div>
+
+              <div>
+                <label htmlFor="created">{t("created")} {t("by")}</label>
+              </div>
+
+              <div>
+                <label htmlFor="modified">{t("modified")} {t("by")}</label>
+              </div>
+
             </div>
+
             {/*add on click to submit form */}
             <div className='save-button'>
               <button type="submit">{t("save")}</button>
             </div>
           </form>
-        </div>
+
+          <div>
+            
+          </div>
+
+        </div>        
       </div>
     </div>
   );
