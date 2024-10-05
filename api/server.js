@@ -28,9 +28,6 @@ app.use(express.json());
 
 // Serve static files from the React app, unsure how this will react with the above .use()
 app.use(express.static(path.join(__dirname, 'client/build')));
-
-
-// Import and use the routes
 const contactsRoutes = require('./routes/contacts');
 const accountsRoutes = require('./routes/accounts');
 const donationsRoutes = require('./routes/donations');
@@ -40,11 +37,6 @@ app.use('/contacts', contactsRoutes);
 app.use('/accounts', accountsRoutes);
 app.use('/donations', donationsRoutes);
 app.use('/campaigns', campaignsRoutes);
-
-// Any request that doesn't match your API routes will serve the React app
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-});
 
 // Start the server
 app.listen(port, () => {

@@ -38,3 +38,4 @@
 ## Next Steps
  - Add more test data to the database
  - Modify API to accept changes
+ - building main page looking at an account in edit mode
