@@ -1,4 +1,22 @@
-<div className="form-address">
+          <form>
+            <div className="form-column">
+              <div className="form-name">
+                <div>
+                  <label htmlFor="name">{t("name")}
+                    <input type="text" id="name" name="name" />
+                  </label>
+                  
+                </div>
+
+                <div>
+                  <label htmlFor="preferredName">{t("preferredName")}
+                    <input type="text" id="preferredName" name="preferredName" />
+                  </label>
+                  
+                </div>
+              </div>
+
+              <div className="form-address">
                 <h2>{t("address")}</h2>
                 <div>
                   <label htmlFor="jalan">{t("jalan")}
@@ -66,18 +84,43 @@
                     <input type="text" id="postalCode" name="postalCode" />
                   </label>
                 </div>
-                <div className="form-lead">
-                    <label htmlFor="leadStatus">{t("leadStatus")}
-                    <select id="leadStatus" name="leadStatus">
-                        <option value="">{t("select status")}</option>
-                        <option value="contacted">{t("contacted")}</option>
-                        <option value="qualified">{t("qualified")}</option>
-                        <option value="future outreach">{t("future outreach")}</option>
-                        <option value="unqualified">{t("unqualified")}</option>
-                        {/* Add other lead statuses as needed */}
-                    </select>
-                    </label>
+              </div>
+            </div>
+
+            <div className="form-column">
+              <div className="form-lead">
+                <label htmlFor="leadStatus">{t("leadStatus")}
+                  <select id="leadStatus" name="leadStatus">
+                    <option value="">{t("select status")}</option>
+                    <option value="contacted">{t("contacted")}</option>
+                    <option value="qualified">{t("qualified")}</option>
+                    <option value="future outreach">{t("future outreach")}</option>
+                    <option value="unqualified">{t("unqualified")}</option>
+                    {/* Add other lead statuses as needed */}
+                  </select>
+                </label>
+              </div>
+
+              <div className="form-contact">
+              <h2>{t("contact")}</h2>
+                <div>
+                  <label htmlFor="emailPreferred">{t("email")}
+                    <input type="email" id="email" name="email" />
+                    <div className="checkbox-group">
+                      <input type="checkbox" id="emailPreferred" name="emailPreferred" /> {t('preferred')}
+                    </div>
+                  </label>
                 </div>
+
+                <div>
+                  <label htmlFor="mobile">{t("mobile")}
+                    <input type="text" id="mobile" name="mobile" />
+                    <div className="checkbox-group">
+                      <input type="checkbox" id="mobilePreferred" name="mobilePreferred"/> {t('preferred')}
+                    </div>
+                  </label>
+                </div>
+
                 <div>
                   <label htmlFor="organization">{t("organization")}
                     <input type="text" id="organization" name="organization" />
@@ -91,5 +134,10 @@
                   </label>
                   
                 </div>
+              </div>
             </div>
-
+            {/*add on click to submit form */}
+            <div className='save-button'>
+              <button type="submit">{t("save")}</button>
+            </div>
+          </form>
