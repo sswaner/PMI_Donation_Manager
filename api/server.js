@@ -25,7 +25,12 @@ db.connect((err) => {
 // Middleware to parse JSON requests
 app.use(express.json());
 
+<<<<<<< Updated upstream
 // Import and use the routes
+=======
+// Serve static files from the React app, unsure how this will react with the above .use()
+app.use(express.static(path.join(__dirname, '../client/build')));
+>>>>>>> Stashed changes
 const contactsRoutes = require('./routes/contacts');
 const accountsRoutes = require('./routes/accounts');
 const donationsRoutes = require('./routes/donations');
