@@ -1,9 +1,16 @@
 const express = require('express');
 const mysql = require('mysql2');
 require('dotenv').config();
+const YAML = require('yamljs');
+const swaggerUi = require('swagger-ui-express');
+const path = require('path');
 
 const app = express();
 const port = process.env.PORT || 3000;
+
+// Swagger documentation
+const swaggerDocument = YAML.load(path.join(__dirname, 'api-docs/swagger.yaml'));
+
 
 // Database connection configuration
 const db = mysql.createConnection({
@@ -25,12 +32,16 @@ db.connect((err) => {
 // Middleware to parse JSON requests
 app.use(express.json());
 
-<<<<<<< Updated upstream
+
+// Middleware to parse JSON requests
+app.use(express.json());
+
+// Serve the Swagger documentation
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 // Import and use the routes
-=======
 // Serve static files from the React app, unsure how this will react with the above .use()
 app.use(express.static(path.join(__dirname, '../client/build')));
->>>>>>> Stashed changes
 const contactsRoutes = require('./routes/contacts');
 const accountsRoutes = require('./routes/accounts');
 const donationsRoutes = require('./routes/donations');
