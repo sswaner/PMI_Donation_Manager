@@ -1,5 +1,6 @@
 const express = require('express');
 const mysql = require('mysql2');
+const path = require('path');
 require('dotenv').config();
 const YAML = require('yamljs');
 const swaggerUi = require('swagger-ui-express');
@@ -32,7 +33,6 @@ db.connect((err) => {
 // Middleware to parse JSON requests
 app.use(express.json());
 
-
 // Middleware to parse JSON requests
 app.use(express.json());
 
@@ -42,6 +42,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 // Import and use the routes
 // Serve static files from the React app, unsure how this will react with the above .use()
 app.use(express.static(path.join(__dirname, '../client/build')));
+
 const contactsRoutes = require('./routes/contacts');
 const accountsRoutes = require('./routes/accounts');
 const donationsRoutes = require('./routes/donations');
