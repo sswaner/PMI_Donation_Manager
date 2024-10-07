@@ -28,3 +28,77 @@ exports.getAllContacts = (req, res) => {
         res.json(results);
     });
 };
+
+exports.addContact = (req, res) => {
+    const {
+        FirstName, LastName, OfficialEmailAddress, PersonalEmailAddress, 
+        OfficialPhoneNumber, PersonalPhoneNumber, Role, AssociatedAccount,
+        ContactChannel, IsActive, LastContactDate, PreferredLanguage,
+        DoNotContact, RecordCreatedBy, ExternalSystemID, Notes
+    } = req.body; // Destructuring the contact data from the request body
+
+    const query = `
+        INSERT INTO Contacts 
+        (FirstName, LastName, OfficialEmailAddress, PersonalEmailAddress, 
+        OfficialPhoneNumber, PersonalPhoneNumber, Role, AssociatedAccount, 
+        ContactChannel, IsActive, LastContactDate, PreferredLanguage, 
+        DoNotContact, RecordCreatedBy, ExternalSystemID, Notes)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `;
+
+    const values = [
+        FirstName, LastName, OfficialEmailAddress, PersonalEmailAddress,
+        OfficialPhoneNumber, PersonalPhoneNumber, Role, AssociatedAccount,
+        ContactChannel, IsActive, LastContactDate, PreferredLanguage,
+        DoNotContact, RecordCreatedBy, ExternalSystemID, Notes
+    ];
+
+    db.query(query, values, (err, result) => {
+        if (err) {
+            console.error('Error adding contact:', err);
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+        res.status(201).send({ message: 'Contact added successfully', contactID: result.insertId });
+    });
+};
+
+exports.updateContact = (req, res) => {
+    const contactID = req.params.id;
+    const {
+        FirstName, LastName, OfficialEmailAddress, PersonalEmailAddress, 
+        OfficialPhoneNumber, PersonalPhoneNumber, Role, AssociatedAccount, 
+        ContactChannel, IsActive, LastContactDate, PreferredLanguage, 
+        DoNotContact, RecordLastModifiedBy, ExternalSystemID, Notes
+    } = req.body;
+
+    const query = `
+        UPDATE Contacts 
+        SET FirstName = ?, LastName = ?, OfficialEmailAddress = ?, PersonalEmailAddress = ?, 
+        OfficialPhoneNumber = ?, PersonalPhoneNumber = ?, Role = ?, AssociatedAccount = ?, 
+        ContactChannel = ?, IsActive = ?, LastContactDate = ?, PreferredLanguage = ?, 
+        DoNotContact = ?, RecordLastModifiedBy = ?, ExternalSystemID = ?, Notes = ?
+        WHERE ContactID = ?
+    `;
+
+    const values = [
+        FirstName, LastName, OfficialEmailAddress, PersonalEmailAddress,
+        OfficialPhoneNumber, PersonalPhoneNumber, Role, AssociatedAccount,
+        ContactChannel, IsActive, LastContactDate, PreferredLanguage,
+        DoNotContact, RecordLastModifiedBy, ExternalSystemID, Notes, contactID
+    ];
+
+    db.query(query, values, (err, result) => {
+        if (err) {
+            console.error('Error updating contact:', err);
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+
+        if (result.affectedRows === 0) {
+            return res.status(404).send('Contact not found');
+        }
+
+        res.send({ message: 'Contact updated successfully' });
+    });
+};
