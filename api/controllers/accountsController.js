@@ -1,19 +1,26 @@
 const db = require('../db');
 
+const { formatAccountResponse } = require('../utils/formatters');
+
 exports.getAccountById = (req, res) => {
     const accountID = req.params.id;
+
     const query = 'SELECT * FROM Accounts WHERE AccountID = ?';
+
     db.query(query, [accountID], (err, results) => {
         if (err) {
             console.error('Error fetching account details:', err);
             res.status(500).send('Internal Server Error');
             return;
         }
+
         if (results.length === 0) {
             res.status(404).send('Account not found');
             return;
         }
-        res.json(results[0]);
+
+        const account = formatAccountResponse(results[0]); // Use the formatter
+        res.json(account); // Send the formatted response
     });
 };
 

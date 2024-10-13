@@ -97,7 +97,7 @@ paths:
           description: Internal Server Error
 
          
-  /accounts:
+/accounts:
     get:
       summary: "Retrieve all accounts"
       tags:
@@ -141,7 +141,7 @@ paths:
         500:
           description: "Internal Server Error"
 
-  /accounts/{id}:
+/accounts/{id}:
     get:
       summary: "Retrieve a specific account by ID"
       tags:
@@ -199,29 +199,29 @@ paths:
         500:
           description: "Internal Server Error"
 
-  /accounts/overview/{id}:
-    get:
-      summary: "Retrieve an account overview by ID"
-      tags:
-        - "Accounts"
-      parameters:
-        - name: id
-          in: path
-          required: true
-          description: "The ID of the account to retrieve an overview for"
-          schema:
-            type: integer
-      responses:
-        200:
-          description: "The account overview"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/AccountOverview"
-        404:
-          description: "Account not found"
-        500:
-          description: "Internal Server Error"
+/accounts/overview/{id}:
+  get:
+    summary: "Retrieve an account overview by ID"
+    tags:
+      - "Accounts"
+    parameters:
+      - name: id
+        in: path
+        required: true
+        description: "The ID of the account to retrieve an overview for"
+        schema:
+          type: integer
+    responses:
+      200:
+        description: "The account overview"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AccountOverview"
+      404:
+        description: "Account not found"
+      500:
+        description: "Internal Server Error"
 
 components:
   schemas:
@@ -267,6 +267,7 @@ components:
           type: string
         Notes:
           type: string
+
     AccountInput:
       type: object
       properties:
@@ -298,7 +299,34 @@ components:
           type: string
         Notes:
           type: string
+
     AccountOverview:
+      type: object
+      properties:
+        AccountID:
+          type: integer
+        OrganizationName:
+          type: string
+        AccountType:
+          type: string
+        AccountManagerName:
+          type: string
+        Contacts:
+          type: array
+          items:
+            $ref: "#/components/schemas/Contact"
+        Donations:
+          type: array
+          items:
+            $ref: "#/components/schemas/Donation"
+        Addresses:
+          type: array
+          items:
+            $ref: "#/components/schemas/Address"
+        Activities:
+          type: array
+          items:
+            $ref: "#/components/schemas/Activity"
       type: object
       properties:
         AccountID:
@@ -378,7 +406,7 @@ components:
           format: date-time
         Description:
           type: string
-          
+
     Contact:
       type: object
       properties:
