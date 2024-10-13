@@ -1,0 +1,106 @@
+tab-nav {
+  display: flex;
+  flex-direction: row; /* Stack tabs vertically */
+  justify-content: flex-start; /* Align tabs to the top */
+  align-items: flex-start; /* Align items to the left */
+}
+
+.sub-tab {
+  margin-left: 20px;
+  margin-right: auto;
+}
+
+.tab-nav button {
+  padding: 10px 20px;
+  cursor: pointer;
+  width: 100%; /* Make button take full width */
+  text-align: left; /* Align text to the left */
+  border: 1px solid #ddd;
+  background-color: #f0f0f0;
+  margin-bottom: 10px; /* Add space between buttons */
+}
+
+.tab-nav button.active {
+  background-color: #0000FF; /* Highlight active tab */
+
+}
+.tab-nav button:hover {
+  background-color: #0000FF; /* Highlight active tab */
+}
+
+.tab-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.tab-content {
+  padding: 20px;
+  border: 1px solid #ddd;
+  flex-grow: 1; /* Allow the content area to grow */
+  min-width: 90%;
+  margin-left: 20px;
+}
+
+.form-column {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  align-items: left;
+  margin-bottom: 10px;
+}
+
+.form-column label {
+  display: flex;
+  align-items: left;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+select {
+  flex-grow: 1;
+  margin-left: 10px;
+  padding: 5px;
+  max-width: 60%;
+}
+
+input[type="email"],
+select {
+  flex-grow: 1;
+  margin-left: 10px;
+  padding: 5px;
+  max-width: 60%;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.save-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #ccc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+.save-button:hover {
+  background-color: #45a049;
+}
+
+form {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap
+  
+}
+
+.form-lead {
+  margin-bottom: auto;
+}
