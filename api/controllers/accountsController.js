@@ -64,3 +64,79 @@ exports.getAccountOverview = (req, res) => {
         });
     });
 };
+
+exports.createAccount = (req, res) => {
+    const {
+        OrganizationName, AccountType, AccountSize, GivingPotential, AccountLocation,
+        AccountChannel, Segment, PriorDonations, AccountManagerID, RecordCreatedBy,
+        ExternalSystemID, Notes
+    } = req.body;
+
+    // Validation for required fields
+    if (!OrganizationName || !AccountType || !AccountManagerID || !RecordCreatedBy) {
+        return res.status(400).send('Missing required fields: OrganizationName, AccountType, AccountManagerID, RecordCreatedBy');
+    }
+
+    const query = `
+        INSERT INTO Accounts 
+        (OrganizationName, AccountType, AccountSize, GivingPotential, AccountLocation, 
+        AccountChannel, Segment, PriorDonations, AccountManagerID, RecordCreatedBy, 
+        RecordLastModifiedBy, CreatedTimestamp, ModifiedTimestamp, ExternalSystemID, Notes)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW(), ?, ?)
+    `;
+
+    const values = [
+        OrganizationName, AccountType, AccountSize, GivingPotential, AccountLocation,
+        AccountChannel, Segment, PriorDonations, AccountManagerID, RecordCreatedBy,
+        RecordCreatedBy, ExternalSystemID, Notes
+    ];
+
+    db.query(query, values, (err, result) => {
+        if (err) {
+            console.error('Error creating account:', err);
+            return res.status(500).send('Internal Server Error');
+        }
+        res.status(201).send({ message: 'Account created successfully', AccountID: result.insertId });
+    });
+};
+
+exports.updateAccount = (req, res) => {
+    const accountID = req.params.id;
+    const {
+        OrganizationName, AccountType, AccountSize, GivingPotential, AccountLocation,
+        AccountChannel, Segment, PriorDonations, AccountManagerID, RecordLastModifiedBy,
+        ExternalSystemID, Notes
+    } = req.body;
+
+    // Validation for required fields
+    if (!OrganizationName || !AccountType || !AccountManagerID || !RecordLastModifiedBy) {
+        return res.status(400).send('Missing required fields: OrganizationName, AccountType, AccountManagerID, RecordLastModifiedBy');
+    }
+
+    const query = `
+        UPDATE Accounts 
+        SET OrganizationName = ?, AccountType = ?, AccountSize = ?, GivingPotential = ?, AccountLocation = ?,
+            AccountChannel = ?, Segment = ?, PriorDonations = ?, AccountManagerID = ?, RecordLastModifiedBy = ?,
+            ModifiedTimestamp = NOW(), ExternalSystemID = ?, Notes = ?
+        WHERE AccountID = ?
+    `;
+
+    const values = [
+        OrganizationName, AccountType, AccountSize, GivingPotential, AccountLocation,
+        AccountChannel, Segment, PriorDonations, AccountManagerID, RecordLastModifiedBy,
+        ExternalSystemID, Notes, accountID
+    ];
+
+    db.query(query, values, (err, result) => {
+        if (err) {
+            console.error('Error updating account:', err);
+            return res.status(500).send('Internal Server Error');
+        }
+
+        if (result.affectedRows === 0) {
+            return res.status(404).send('Account not found');
+        }
+
+        res.send({ message: 'Account updated successfully' });
+    });
+};
