@@ -24,5 +24,18 @@
    - each element of text is written as {t('key tag')} and when the pages language is updated it pulls the text from the respective language's json
 
 ## Next Steps:
- - building main page looking at an account in edit mode
- 
+ - work on building login
+   - get test accounts to login and future testing for access levels
+
+# Shawn's Additions
+## Node changes
+ - reconfigured to use routes and controllers
+ - cleaned up database connection (uses .env file in /api)
+ - Added PUT and POST routes for contacts
+ - Added swagger documentation at /api-docs (served on the Node API port 3000)
+## Database
+ - Added accountID 2 to the Accounts table
+
+## Next Steps
+ - Modify additionsl APIs to accept changes
+ - More wireframes
