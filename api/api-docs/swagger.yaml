@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Node.js Backend API
-  description: API documentation for the Node.js backend handling contacts.
+  description: API documentation for the Node.js backend handling contacts and accounts.
   version: 1.0.0
 servers:
   - url: http://localhost:3000
@@ -96,40 +96,290 @@ paths:
         '500':
           description: Internal Server Error
 
+  /accounts:
+    get:
+      summary: "Retrieve all accounts"
+      tags:
+        - "Accounts"
+      responses:
+        200:
+          description: "A list of all accounts"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Account"
+        500:
+          description: "Internal Server Error"
+    post:
+      summary: "Create a new account"
+      tags:
+        - "Accounts"
+      requestBody:
+        description: "Account data to be created"
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AccountInput"
+      responses:
+        201:
+          description: "Account created successfully"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  AccountID:
+                    type: integer
+        400:
+          description: "Missing required fields"
+        500:
+          description: "Internal Server Error"
+
+  /accounts/{id}:
+    get:
+      summary: "Retrieve a specific account by ID"
+      tags:
+        - "Accounts"
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: "The ID of the account to retrieve"
+          schema:
+            type: integer
+      responses:
+        200:
+          description: "The account details"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Account"
+        404:
+          description: "Account not found"
+        500:
+          description: "Internal Server Error"
+    put:
+      summary: "Update an account by ID"
+      tags:
+        - "Accounts"
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: "The ID of the account to update"
+          schema:
+            type: integer
+      requestBody:
+        description: "Updated account data"
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AccountInput"
+      responses:
+        200:
+          description: "Account updated successfully"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        400:
+          description: "Missing required fields"
+        404:
+          description: "Account not found"
+        500:
+          description: "Internal Server Error"
+
+  /accounts/overview/{id}:
+    get:
+      summary: "Retrieve an account overview by ID"
+      tags:
+        - "Accounts"
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: "The ID of the account to retrieve an overview for"
+          schema:
+            type: integer
+      responses:
+        200:
+          description: "The account overview"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AccountOverview"
+        404:
+          description: "Account not found"
+        500:
+          description: "Internal Server Error"
+
+  /donations:
+    get:
+      summary: "Retrieve all donations"
+      tags:
+        - "Donations"
+      responses:
+        200:
+          description: "A list of all donations"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Donation"
+        500:
+          description: "Internal Server Error"
+    post:
+      summary: "Create a new donation"
+      tags:
+        - "Donations"
+      requestBody:
+        description: "Donation data to be created"
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DonationInput"
+      responses:
+        201:
+          description: "Donation created successfully"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  DonationID:
+                    type: integer
+        400:
+          description: "Missing required fields"
+        500:
+          description: "Internal Server Error"
+
+  /donations/{id}:
+    get:
+      summary: "Retrieve a specific donation by ID"
+      tags:
+        - "Donations"
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: "The ID of the donation to retrieve"
+          schema:
+            type: integer
+      responses:
+        200:
+          description: "The donation details"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Donation"
+        404:
+          description: "Donation not found"
+        500:
+          description: "Internal Server Error"
+    put:
+      summary: "Update a donation by ID"
+      tags:
+        - "Donations"
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: "The ID of the donation to update"
+          schema:
+            type: integer
+      requestBody:
+        description: "Updated donation data"
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DonationInput"
+      responses:
+        200:
+          description: "Donation updated successfully"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        400:
+          description: "Missing required fields"
+        404:
+          description: "Donation not found"
+        500:
+          description: "Internal Server Error"
+
+  /donations/account/{accountId}:
+    get:
+      summary: "Retrieve all donations for a specific account"
+      tags:
+        - "Donations"
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          description: "The ID of the account to retrieve donations for"
+          schema:
+            type: integer
+      responses:
+        200:
+          description: "A list of donations for the account"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Donation"
+        404:
+          description: "No donations found for this account"
+        500:
+          description: "Internal Server Error"
+
 components:
   schemas:
-    Contact:
+    Account:
       type: object
       properties:
-        ContactID:
+        AccountID:
           type: integer
-        FirstName:
+        OrganizationName:
           type: string
-        LastName:
+        AccountType:
           type: string
-        OfficialEmailAddress:
+          enum: ['Corporation', 'Governmental Department', 'Aid Agency', 'Grant Foundation', 'Retail (3rd Party Fundraising)']
+        AccountSize:
           type: string
-        PersonalEmailAddress:
+          enum: ['Small', 'Medium', 'Large']
+        GivingPotential:
+          type: number
+          format: float
+        AccountLocation:
           type: string
-        OfficialPhoneNumber:
+        AccountChannel:
           type: string
-        PersonalPhoneNumber:
+        Segment:
           type: string
-        Role:
-          type: string
-        AssociatedAccount:
+          enum: ['Energy', 'Retail']
+        PriorDonations:
+          type: number
+          format: float
+        AccountManagerID:
           type: integer
-        ContactChannel:
-          type: string
-        IsActive:
-          type: boolean
-        LastContactDate:
-          type: string
-          format: date
-        PreferredLanguage:
-          type: string
-        DoNotContact:
-          type: boolean
         RecordCreatedBy:
           type: integer
         RecordLastModifiedBy:
@@ -143,6 +393,192 @@ components:
         ExternalSystemID:
           type: string
         Notes:
+          type: string
+
+    AccountInput:
+      type: object
+      properties:
+        OrganizationName:
+          type: string
+        AccountType:
+          type: string
+        AccountSize:
+          type: string
+        GivingPotential:
+          type: number
+          format: float
+        AccountLocation:
+          type: string
+        AccountChannel:
+          type: string
+        Segment:
+          type: string
+        PriorDonations:
+          type: number
+          format: float
+        AccountManagerID:
+          type: integer
+        RecordCreatedBy:
+          type: integer
+        RecordLastModifiedBy:
+          type: integer
+        ExternalSystemID:
+          type: string
+        Notes:
+          type: string
+
+    AccountOverview:
+      type: object
+      properties:
+        AccountID:
+          type: integer
+        OrganizationName:
+          type: string
+        AccountType:
+          type: string
+        AccountManagerName:
+          type: string
+        Contacts:
+          type: array
+          items:
+            $ref: "#/components/schemas/Contact"
+        Donations:
+          type: array
+          items:
+            $ref: "#/components/schemas/Donation"
+        Addresses:
+          type: array
+          items:
+            $ref: "#/components/schemas/Address"
+        Activities:
+          type: array
+          items:
+            $ref: "#/components/schemas/Activity"
+
+    Contact:
+      type: object
+      properties:
+        ContactID:
+          type: integer
+        FirstName:
+          type: string
+        LastName:
+          type: string
+        Role:
+          type: string
+        IsActive:
+          type: boolean
+
+  schemas:
+    Donation:
+      type: object
+      properties:
+        DonationID:
+          type: integer
+        AccountID:
+          type: integer
+        ContactID:
+          type: integer
+        CampaignID:
+          type: integer
+        Amount:
+          type: number
+          format: float
+        Currency:
+          type: string
+          enum: ['IDR', 'USD']
+        DonationDate:
+          type: string
+          format: date
+        DonationStatus:
+          type: string
+          enum: ['Solicited', 'Committed', 'Received']
+        DonationSource:
+          type: string
+        Designation:
+          type: string
+        Notes:
+          type: string
+        InKind:
+          type: boolean
+        PendingAmount:
+          type: number
+          format: float
+        AccountManagerID:
+          type: integer
+        CreatedTimestamp:
+          type: string
+          format: date-time
+        ModifiedTimestamp:
+          type: string
+          format: date-time
+        ExternalSystemID:
+          type: string
+
+    DonationInput:
+      type: object
+      properties:
+        AccountID:
+          type: integer
+        ContactID:
+          type: integer
+        CampaignID:
+          type: integer
+        Amount:
+          type: number
+          format: float
+        Currency:
+          type: string
+        DonationDate:
+          type: string
+          format: date
+        DonationStatus:
+          type: string
+        DonationSource:
+          type: string
+        Designation:
+          type: string
+        Notes:
+          type: string
+        InKind:
+          type: boolean
+        PendingAmount:
+          type: number
+          format: float
+        AccountManagerID:
+          type: integer
+        ExternalSystemID:
+          type: string
+
+    Address:
+      type: object
+      properties:
+        AddressID:
+          type: integer
+        Building:
+          type: string
+        AddressLocation:
+          type: string
+        City:
+          type: string
+        Province:
+          type: string
+        PostalCode:
+          type: string
+        Country:
+          type: string
+
+    Activity:
+      type: object
+      properties:
+        ActivityID:
+          type: integer
+        ActivityType:
+          type: string
+        ActivityDate:
+          type: string
+          format: date-time
+        Description:
           type: string
 
     ContactInput:
