@@ -97,7 +97,10 @@ exports.createAccount = (req, res) => {
         AccountChannel, Segment, PriorDonations, AccountManagerID, RecordCreatedBy,
         RecordCreatedBy, ExternalSystemID, Notes
     ];
-
+    // Log query and values to console
+    console.log('Executing SQL Query: ', query);
+    console.log('With values: ', values);
+    
     db.query(query, values, (err, result) => {
         if (err) {
             console.error('Error creating account:', err);

@@ -12,6 +12,7 @@ This project focuses on building a centralized Resource Mobilization Database fo
 ## Screen Mockups
  * [Account Screen](./docs/account.md)
  * [Contact Screen](./docs/contact.md)
+ * [Donation Screen](./docs/donation.png)
 
 # Austin's Additions
 ## Built initial app:
