@@ -46,11 +46,13 @@ const contactsRoutes = require('./routes/contacts');
 const accountsRoutes = require('./routes/accounts');
 const donationsRoutes = require('./routes/donations');
 const campaignsRoutes = require('./routes/campaigns');
+const activitiesRoutes = require('./routes/activities');
 
 app.use('/contacts', contactsRoutes);
 app.use('/accounts', accountsRoutes);
 app.use('/donations', donationsRoutes);
 app.use('/campaigns', campaignsRoutes);
+app.use('/activities', activitiesRoutes);
 
 // Start the server
 app.listen(port, () => {
