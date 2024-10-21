@@ -459,6 +459,32 @@ paths:
           description: Activity not found
         500:
           description: Internal Server Error
+          
+  /user/{UserID}/accounts:
+    get:
+      summary: Get accounts assigned to a specific user
+      tags:
+        - Users
+      parameters:
+        - name: UserID
+          in: path
+          required: true
+          description: ID of the user to retrieve accounts for
+          schema:
+            type: integer
+      responses:
+        200:
+          description: A list of accounts assigned to the user
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserAccount' # Use the new subset schema
+        404:
+          description: No accounts found for the user
+        500:
+          description: Internal Server Error
 components:
   schemas:
     Account:
@@ -727,7 +753,7 @@ components:
           type: string
         Notes:
           type: string
-          
+
     Activity:
       type: object
       properties:
@@ -790,3 +816,27 @@ components:
         Description:
           type: string
           description: Detailed description of the activity
+    UserAccount: # New schema for the subset of fields
+      type: object
+      properties:
+        AccountID:
+          type: integer
+          description: Unique identifier for the account
+        OrganizationName:
+          type: string
+          description: Name of the organization
+        AccountType:
+          type: string
+          description: Type of the account (e.g., Corporation, Nonprofit)
+        AccountSize:
+          type: string
+          description: Size of the account (e.g., Small, Medium, Large)
+        GivingPotential:
+          type: number
+          description: The potential value of donations from this account
+        Segment:
+          type: string
+          description: The segment this account belongs to (e.g., Retail, Corporate)
+        AccountLocation:
+          type: string
+          description: The location of the account

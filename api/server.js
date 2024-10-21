@@ -47,7 +47,9 @@ const accountsRoutes = require('./routes/accounts');
 const donationsRoutes = require('./routes/donations');
 const campaignsRoutes = require('./routes/campaigns');
 const activitiesRoutes = require('./routes/activities');
+const userRoutes = require('./routes/user');
 
+app.use('/user', userRoutes);
 app.use('/contacts', contactsRoutes);
 app.use('/accounts', accountsRoutes);
 app.use('/donations', donationsRoutes);
