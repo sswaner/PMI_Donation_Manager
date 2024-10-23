@@ -7,3 +7,5 @@ router.get('/', campaignsController.getAllCampaigns);
 router.get('/:id', campaignsController.getCampaignById);
 
 module.exports = router;
+
+ 
