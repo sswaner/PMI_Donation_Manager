@@ -459,7 +459,21 @@ paths:
           description: Activity not found
         500:
           description: Internal Server Error
-          
+  /user:
+    get:
+      summary: Get all users
+      tags:
+        - Users
+      responses:
+        200:
+          description: A list of all users
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/User'
+        500:
+          description: Internal Server Error
   /user/{UserID}/accounts:
     get:
       summary: Get accounts assigned to a specific user
@@ -485,6 +499,64 @@ paths:
           description: No accounts found for the user
         500:
           description: Internal Server Error
+
+  /campaigns:
+    get:
+      summary: Get all campaigns
+      tags:
+        - Campaigns
+      responses:
+        200:
+          description: A list of all campaigns
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Campaign'
+        500:
+          description: Internal Server Error
+
+  /campaigns/{id}:
+    get:
+      summary: Get campaign details by ID, along with accounts engaged with the campaign
+      tags:
+        - Campaigns
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the campaign to retrieve
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Campaign details and account engagements
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CampaignWithEngagements'
+        404:
+          description: Campaign not found
+        500:
+          description: Internal Server Error
+  /campaigns/list:
+    get:
+      summary: Get active campaigns (CampaignID and CampaignName)
+      tags:
+        - Campaigns
+      responses:
+        200:
+          description: A list of active campaigns
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ActiveCampaign'
+        500:
+          description: Internal Server Error
+
 components:
   schemas:
     Account:
@@ -840,3 +912,96 @@ components:
         AccountLocation:
           type: string
           description: The location of the account
+    Campaign:
+      type: object
+      properties:
+        CampaignID:
+          type: integer
+          description: Unique identifier for the campaign
+        CampaignName:
+          type: string
+          description: Name of the campaign
+        StartDate:
+          type: string
+          format: date
+          description: Start date of the campaign
+        EndDate:
+          type: string
+          format: date
+          description: End date of the campaign
+        CampaignManagerID:
+          type: integer
+          description: ID of the campaign manager
+        Description:
+          type: string
+          description: Brief description of the campaign
+        TargetAmount:
+          type: number
+          description: Target donation amount for the campaign
+        CampaignType:
+          type: string
+          description: Type of the campaign (e.g., "Fundraising", "Awareness", etc.)
+        IsActive:
+          type: boolean
+          description: Whether the campaign is currently active
+
+    CampaignWithEngagements:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Campaign'
+      properties:
+        AccountEngagements:
+          type: array
+          description: List of accounts engaged with the campaign
+          items:
+            $ref: '#/components/schemas/AccountEngagement'
+
+    AccountEngagement:
+      type: object
+      properties:
+        OrganizationName:
+          type: string
+          description: Name of the organization
+        Sector:
+          type: string
+          description: Segment or sector of the account
+        EngagementLevel:
+          type: string
+          description: Engagement level of the account with the campaign
+    ActiveCampaign:
+      type: object
+      properties:
+        CampaignID:
+          type: integer
+          description: Unique identifier for the campaign
+        CampaignName:
+          type: string
+          description: Name of the active campaign
+    User:
+      type: object
+      properties:
+        UserID:
+          type: integer
+          description: Unique identifier for the user
+        Username:
+          type: string
+          description: Username for login
+        FirstName:
+          type: string
+          description: User's first name
+        LastName:
+          type: string
+          description: User's last name
+        Email:
+          type: string
+          description: User's email address
+        UserRole:
+          type: string
+          enum:
+            - Admin
+            - Fundraising Admin
+            - Staff
+          description: Role of the user in the system
+        IsActive:
+          type: boolean
+          description: Whether the user is active
