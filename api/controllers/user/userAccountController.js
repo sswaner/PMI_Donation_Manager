@@ -1,5 +1,6 @@
 const db = require('../../db'); // Assuming db connection is in a separate file
 
+
 // Get accounts assigned to a user by UserID
 exports.getAccountsByUserId = (req, res) => {
     const userID = req.params.UserID;
