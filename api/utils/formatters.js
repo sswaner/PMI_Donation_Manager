@@ -40,3 +40,28 @@ exports.formatAccountResponse = (account) => ({
     ExternalSystemID: account.ExternalSystemID || null,
     Notes: account.Notes || '',
 });
+
+// utils/formatters.js
+
+exports.formatContactResponse = (contact) => ({
+    ContactID: contact.ContactID || null,
+    FirstName: contact.FirstName || '',
+    LastName: contact.LastName || '',
+    OfficialEmailAddress: contact.OfficialEmailAddress || null,
+    PersonalEmailAddress: contact.PersonalEmailAddress || null,
+    OfficialPhoneNumber: contact.OfficialPhoneNumber || null,
+    PersonalPhoneNumber: contact.PersonalPhoneNumber || null,
+    Role: contact.Role || '',
+    AssociatedAccount: contact.AssociatedAccount || null,
+    ContactChannel: contact.ContactChannel || '',
+    IsActive: contact.IsActive ? Boolean(contact.IsActive) : false,
+    LastContactDate: contact.LastContactDate || null,
+    PreferredLanguage: contact.PreferredLanguage || 'English',
+    DoNotContact: contact.DoNotContact ? Boolean(contact.DoNotContact) : false,
+    RecordCreatedBy: contact.RecordCreatedBy || null,
+    RecordLastModifiedBy: contact.RecordLastModifiedBy || null,
+    CreatedTimestamp: contact.CreatedTimestamp || null,
+    ModifiedTimestamp: contact.ModifiedTimestamp || null,
+    ExternalSystemID: contact.ExternalSystemID || null,
+    Notes: contact.Notes || ''
+});

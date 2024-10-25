@@ -1,6 +1,6 @@
 const db = require('../db');
 
-const { formatAccountResponse } = require('../utils/formatters');
+const { formatAccountResponse, formatContactResponse } = require('../utils/formatters');
 
 exports.getAccountById = (req, res) => {
     const accountID = req.params.id;
@@ -148,5 +148,28 @@ exports.updateAccount = (req, res) => {
         }
 
         res.send({ message: 'Account updated successfully' });
+    });
+};
+
+// Function to get contacts by AccountID
+exports.getContactsByAccountID = (req, res) => {
+    const accountID = req.params.AccountID;
+
+    const query = 'SELECT * FROM Contacts WHERE AssociatedAccount = ? ORDER BY LastName, FirstName';
+
+    db.query(query, [accountID], (err, results) => {
+        if (err) {
+            console.error('Error fetching contacts:', err);
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+
+        if (results.length === 0) {
+            res.status(404).send('No contacts found for this account');
+            return;
+        }
+
+        const contacts = results.map(formatContactResponse); // Assuming a contact formatter exists
+        res.json(contacts); // Return the formatted contacts
     });
 };

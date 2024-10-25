@@ -11,4 +11,6 @@ router.get('/overview/:id', accountsController.getAccountOverview);
 router.post('/', accountsController.createAccount);        // Create new account
 router.put('/:id', accountsController.updateAccount);      // Update existing account by ID
 
+router.get('/:AccountID/contacts', accountsController.getContactsByAccountID);
+
 module.exports = router;
