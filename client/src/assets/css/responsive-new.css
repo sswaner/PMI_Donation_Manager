@@ -1,0 +1,360 @@
+
+@media(max-width:1600px){
+
+    /* service request strat */
+    .custom-light-gallery > a{flex: 0 0 25%;}
+    /* service request end */
+
+}
+
+@media(min-width:1200px) and (max-width:1800px){
+
+    /* expense page start */
+    .expense-changes-new .metric-row .metric .metric-value{font-size: 20px;}
+    .expense-changes-new .expense-btn-col{flex: 0 0 100%; max-width: 100%;}
+    .expense-status-col{flex: 0 0 20%; max-width: 20%;}
+    .expense-select-col,.expense-note-col{flex: 0 0 40%; max-width: 40%;}
+    .expense-changes-new .metric-row .metric {min-height: 100%;}
+    .expense-changes-new .metric-row{height: 100%;}
+    /* expense page end */
+
+}
+
+@media(min-width:1401px){
+
+    /* admin page start */
+   form#form-adminuserAdd .custom-checkbox.col-xl-3{max-width: 16%; flex: 0 0 16%;}
+    /* admin page end */
+
+    /* customer page start */
+    .referal-coupen-row > .col-xl-6{flex: 0 0 33%; max-width: 33%;}
+    /* customer page end */
+
+}
+
+@media(max-width:1400px){
+
+
+    /* dashbord page start */
+    .metric .metric-value { font-size: 22px;}
+    .metric-label{font-size: 13px;}
+    /* dashnoard page end */
+
+}
+
+@media(max-width:1300px){
+
+
+    /* customer page start */
+
+    /* customer edit start */
+    .cus-prop-name{width: 460px;}
+    /* customer edit end */
+
+    /* customer page end */
+
+}
+
+@media(min-width:1200px){
+
+    /* dashboard start */
+    .metric-flush .col-xl-2,.metric-flush .col-xl-3{flex: 0 0 20%; max-width: 20%;}
+    /* dashboard end */
+
+}
+
+@media(max-width:1199px){
+
+    /* dashboard page start */
+    /* .page-title-bar{margin-bottom: 0;} */
+    .page-title-bar .lead{margin-bottom: 0;}
+    .metric-flush > .col-lg-6, .metric-flush > [class="col-*"]{margin-bottom: -1px;}
+    /* dashboard page end */
+
+    /* subscription page start */
+    .subscription-page .section-block .card  .card-header{font-size: 17px; }
+    /* subscription page end */
+
+    /* customer page start */
+
+    /* customer update start */
+    .customer-view-header .customer-view-header-email{font-size: 13px;}
+    .customer-view-header h1{font-size: 20px;}
+    .customer-view-header .customer-view .user-avatar { margin-right: 15px; height: 5rem; width: 5rem;}
+    /* customer update end */
+
+    /* customer page end */
+
+    /* expense page start */
+    .expense-changes-row .custom-checkbox { margin-top: 0; margin-bottom: 15px !important;}
+    .expense-changes-row .expense-matric-row .metric-bordered{min-height: 208px;}
+
+    /* expense new start */
+    .expense-changes-new .expense-matric-row{margin-top: 20px;}
+    /* expense new end */
+
+    /* expense page end */
+
+    /* service request strat */
+    .custom-light-gallery > a{flex: 0 0 50%;}
+    /* service request end */
+
+
+  
+
+
+}
+
+@media(min-width:992px){
+/* page right section start */
+
+/* left sidebar start */
+.has-sidebar-expand-lg .page-sidebar{right: auto; left: 0;}
+/* left sidebar end */
+
+/* right part strat */
+.has-sidebar-expand-lg .app-main>.app-footer, .has-sidebar-expand-lg .page-inner{margin-left: 22.5rem; margin-right: auto;}
+/* right part end */
+
+/* page right section end */
+
+
+/* payment page start */
+
+/* payment history popup start */
+.transaction-modal-refund-list .col-lg-4:nth-child(3n) .transaction-details-refund-box::before{content: none;}
+/* payment history popup end */
+
+/* payment page end */
+
+}
+
+
+
+
+@media(min-width:768px){
+
+    .auth-header{padding-top: 2rem;}
+   
+
+    /* sidebar menu start */
+    .app-main { padding-left: 15rem;}
+    /* sidebar menu end */
+
+}
+
+@media(max-width:991px) and (min-width:576px){
+
+    /* payment page start */
+
+/* payment history popup start */
+.transaction-modal-refund-list .col-lg-4:nth-child(2n) .transaction-details-refund-box::before{content: none;}
+/* payment history popup end */
+
+/* payment page end */
+
+
+}
+
+@media(max-width:991px){
+
+
+    /* customer page start */
+
+    /* customer edit start */
+    .cus-prop-name{width: 220px;}
+    /* customer property start */
+    /* customer accordian header start */
+    .cus-prop-right .prop-status{width: auto;}
+    /* customer accordian header end */
+    /* customer property end */
+    /* customer edit end */
+
+    /* customer update start */
+
+    .customer-update-sec .nav-scroller > .nav{padding-bottom: 0rem;}
+    .customer-update-sec .nav-tabs .nav-link{padding: 0.5rem;}
+    .customer-update-sec .nav-scroller { height: 2.5rem;}
+
+    /* customer update end */
+    /* customer page end */
+
+     /* expense page start */
+     .expense-changes-row .expense-matric-row .metric-bordered{min-height: 140px;}
+     .expense-changes-row .expense-matric-row{margin-top: 20px;}
+     /* expense page end */
+
+     /* service request strat */
+     figure .img-fluid.figure-service-image{height: 220px;}
+    /* service request end */
+
+
+    
+}
+
+@media(max-width:767px){
+
+    /* header start */
+    .app-header .top-bar .header-logo { height: 32px; margin-left: 10px; }
+     /* header end */
+
+  /* sidebar menu start */
+  .stacked-menu .menu-item > a{font-size: 14px;}
+  .stacked-menu .has-child.has-open{padding-bottom: 12px;}
+  .stacked-menu-has-collapsible .has-child > .menu  .menu-link{padding-top: 3px; padding-bottom: 3px;}
+  /* sidebar menu end */
+
+ /* login page start */
+ form.auth-form{padding: 1.5rem; padding-top:0 ;}
+ .login-logo{margin-bottom: 15px;}
+ /* login page end */
+
+ /* forgot password page start */
+ form.auth-form .h3 { margin-bottom: 12px; font-size: 25px;}
+ /* forgot password page end */
+
+ /* dashboard page start */
+ /* datatable start */
+ .dataTables_wrapper .dataTables_length{float: left !important;}
+ .dataTables_wrapper .dataTables_filter{float: right !important; margin-top: 0 !important;}
+ /* datatable end */
+ /* dashboard page end */
+
+ /* subscription page start */
+ .subscription-page .section-block .card  .card-header{padding: 10px 16px;}
+ /* subscription page end */
+
+ /* payment history popup start */
+.transaction-modal-details .transaction-detail-inner{margin-bottom: 12px;}
+.transaction-modal-details label{margin-bottom: 4px;}
+.transaction-modal-refund-list .transaction-details-refund-box{margin-bottom: 8px;}
+
+/* payment history popup end */
+
+/* customer page start */
+/* referal start */
+.referal-coupen-box .payment-referal-coupen img{height: 120px;}
+.referal-coupen-box .payment-referal-view > a{font-size: 13px;}
+.referal-coupen-box  .payment-referal-name ol li{padding-bottom: 8px; font-size: 14px;}
+/* referal end */
+/* customer page end */
+
+/* job managment page start */
+.input-group-alt .input-group-text{padding: 4px 12px;}
+/* job managment page end */
+
+
+
+
+}
+
+
+@media(max-width:767px) and (min-width:576px){
+
+
+    /* service request page start */
+    .generate-once-of-btn .btn{margin-top: 5px;}
+    /* service request page end */
+
+}
+
+@media(max-width:575px){
+
+    /* forgot password page start */
+    form.auth-form .h3{font-size: 23px;}
+    /* forgot password page end */
+
+    /* login start */
+    form.auth-form{width: 100%;}
+    /* login end */
+
+    /* dashboar page start */
+    .metric-row .metric { min-height: 6.5rem;}
+    /* dashboar page end */
+
+
+    /* customer page start */
+    /* customer edit start */
+    .cus-prop-right .prop-status { margin-right: 0;}
+    /* customer edit end */
+    /* customer page end */
+
+    /* staff page start */
+    /* route popup start */
+    .map-info-window ul li{flex-direction: column;}
+    .map-info-window ul li .badge{align-self: flex-start;}
+    .map-info-window .staff-route-image .map-img-icon{display: none;}
+    .map-info-window h3{font-size: 16px;}
+    /* route popup end */
+    /* staff page end */
+
+    /* job page start */
+    .delete-job-desc{margin-top: 8px;}
+    /* job page end */
+
+    
+    /* payment page start */
+    /* payment history popup start */
+
+    /* .transaction-modal-details .transaction-detail-inner{margin-bottom: 12px;}
+    .transaction-modal-details label{margin-bottom: 5px;} */
+    .transaction-modal-refund-list .col-lg-4 .transaction-details-refund-box::before{content: none;}
+    /* .transaction-modal-refund-list .transaction-details-refund-box{margin-bottom: 8px;} */
+
+    /* payment history popup end */
+    /* payment page end */
+
+    /* expanse page start */
+    .expense-changes-row .expense-matric-row .metric-bordered{margin-right: 0; margin-bottom: 15px;}
+    /* expanse page end */
+
+     /* service request strat */
+     .generate-job-btn{padding-left: 15px; padding-right: 15px; flex-direction: column; align-items: flex-end;}
+     .generate-job-btn p label{margin-bottom: 8px;}
+     /* service request end */
+   
+}
+
+@media(max-width:479px){
+
+    /* dashboard page start */
+
+ /* datatable start */
+ .dataTables_wrapper .dataTables_length,.dataTables_wrapper .dataTables_filter{float: none !important;}
+ 
+ 
+ /* datatable end */
+
+ /* dashboard page end */
+
+    /* staff page start */
+    /* route popup start */
+   
+    .map-info-window .staff-route-image .col-6{max-width: 100%; flex: 0 0 100%; }
+    .map-info-window .staff-route-image .col-6:first-child{margin-bottom: 15px;}
+    /* route popup end */
+    /* staff page end */
+
+    /* customer page start */
+
+    /* customer update start */
+    .cus-prop-name {width: 170px;}
+    /* customer update end */
+
+    /* customer referal start */
+    .referal-coupen-box .col-6.referal-coupen-box-left{flex: 0 0 60%; max-width: 60%;}
+    .referal-coupen-box .col-6.referal-coupen-box-right{flex: 0 0 40%; max-width: 40%;}
+    .referal-coupen-box .payment-referal-coupen img {height: 100px;}
+    .payment-referal-coupen {margin-right: 0;}
+    /* customer page end */
+
+    /* voucher page start */
+    .view-voucher-btn{font-size: 13px;}
+    /* voucher page end */
+
+    /* service request strat */
+    .custom-light-gallery > a{flex: 0 0 100%;}
+    /* service request end */
+
+}
+

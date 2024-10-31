@@ -1,0 +1,41 @@
+
+/* cms page start  */
+.cms-page-details h1{font-size: 40px;}
+.cms-page-details strong.title{margin-bottom: 10px;display: block;}
+.cms-page-details {background-color: #f5fdf7;}
+.cms-page-details h2{font-size: 24px;}
+.cms-page-details h3{font-size: 20px;}
+.cms-page-details ul li ,.cms-page-details  ol li{margin-bottom: 12px;}
+.cms-page-details ul{list-style: disc;}
+.cms-page-details  ul ,.cms-page-details  ol{padding-left: 20px;}
+/* .cms-page-details  ol li ol{list-style: upper-alpha;} */
+
+
+/* cms page end  */
+
+@media(max-width:1199px){
+  /* cms page start  */
+  .cms-page-details h1{font-size: 35px;}
+  /* cms page end */
+}
+
+@media(max-width:991px){
+    /* cms page start  */
+    .cms-page-details h1{font-size: 30px;}
+    /* cms page end */
+}
+@media(max-width:991px){
+    /* cms page start  */
+    .cms-page-details h1{font-size: 25px;}
+    .cms-page-details h2 {font-size: 20px;}
+    .cms-page-details h3 {font-size: 17px;}
+    /* cms page end */
+}  
+
+@media(max-width:575px){
+ /* cms page start  */
+ .cms-page-details h1{font-size: 22px;}
+ .cms-page-details h2 {font-size: 18px;}
+ .cms-page-details h3 {font-size: 16px;}
+ /* cms page end */  
+}
