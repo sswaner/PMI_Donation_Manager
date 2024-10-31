@@ -11,7 +11,7 @@ CREATE TABLE `Users` (
   `AssociatedAccountID` int DEFAULT NULL,
   `CampaignAccess` text,
   PRIMARY KEY (`UserID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `Accounts` (
   `AccountID` int NOT NULL AUTO_INCREMENT,
@@ -37,7 +37,7 @@ CREATE TABLE `Accounts` (
   CONSTRAINT `Accounts_ibfk_1` FOREIGN KEY (`AccountManagerID`) REFERENCES `Users` (`UserID`),
   CONSTRAINT `Accounts_ibfk_2` FOREIGN KEY (`RecordCreatedBy`) REFERENCES `Users` (`UserID`),
   CONSTRAINT `Accounts_ibfk_3` FOREIGN KEY (`RecordLastModifiedBy`) REFERENCES `Users` (`UserID`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `Contacts` (
   `ContactID` int NOT NULL AUTO_INCREMENT,
@@ -63,7 +63,7 @@ CREATE TABLE `Contacts` (
   PRIMARY KEY (`ContactID`),
   KEY `FK_AssociatedAccount` (`AssociatedAccount`),
   CONSTRAINT `FK_AssociatedAccount` FOREIGN KEY (`AssociatedAccount`) REFERENCES `Accounts` (`AccountID`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `Campaigns` (
   `CampaignID` int NOT NULL AUTO_INCREMENT,
@@ -78,7 +78,7 @@ CREATE TABLE `Campaigns` (
   PRIMARY KEY (`CampaignID`),
   KEY `CampaignManagerID` (`CampaignManagerID`),
   CONSTRAINT `Campaigns_ibfk_1` FOREIGN KEY (`CampaignManagerID`) REFERENCES `Users` (`UserID`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `Activities` (
   `ActivityID` int NOT NULL AUTO_INCREMENT,
@@ -95,7 +95,7 @@ CREATE TABLE `Activities` (
   CONSTRAINT `Activities_ibfk_1` FOREIGN KEY (`AccountID`) REFERENCES `Accounts` (`AccountID`),
   CONSTRAINT `Activities_ibfk_2` FOREIGN KEY (`ContactID`) REFERENCES `Contacts` (`ContactID`) ON DELETE SET NULL,
   CONSTRAINT `Activities_ibfk_3` FOREIGN KEY (`CreatedBy`) REFERENCES `Users` (`UserID`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `Donations` (
   `DonationID` int NOT NULL AUTO_INCREMENT,
@@ -130,4 +130,4 @@ CREATE TABLE `Donations` (
   CONSTRAINT `Donations_ibfk_4` FOREIGN KEY (`AccountManagerID`) REFERENCES `Users` (`UserID`),
   CONSTRAINT `Donations_ibfk_5` FOREIGN KEY (`RecordCreatedBy`) REFERENCES `Users` (`UserID`),
   CONSTRAINT `Donations_ibfk_6` FOREIGN KEY (`RecordLastModifiedBy`) REFERENCES `Users` (`UserID`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
