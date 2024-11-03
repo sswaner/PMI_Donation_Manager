@@ -1,69 +1,66 @@
-const db = require('../db'); // Assuming you extract the db connection into a separate file
+const { Contact } = require('../models'); // Assuming Contact is the Sequelize model
 
-exports.getContactById = (req, res) => {
+exports.getContactById = async (req, res) => {
     const contactID = req.params.id;
-    const query = 'SELECT * FROM Contacts WHERE ContactID = ?';
-    db.query(query, [contactID], (err, results) => {
-        if (err) {
-            console.error('Error fetching contact details:', err);
-            res.status(500).send('Internal Server Error');
-            return;
+
+    try {
+        const contact = await Contact.findOne({ where: { ContactID: contactID } });
+        if (!contact) {
+            return res.status(404).send('Contact not found');
         }
-        if (results.length === 0) {
-            res.status(404).send('Contact not found');
-            return;
-        }
-        res.json(results[0]);
-    });
+        res.json(contact);
+    } catch (err) {
+        console.error('Error fetching contact details:', err);
+        res.status(500).send('Internal Server Error');
+    }
 };
 
-exports.getAllContacts = (req, res) => {
-    const query = 'SELECT * FROM Contacts';
-    db.query(query, (err, results) => {
-        if (err) {
-            console.error('Error fetching contact details:', err);
-            res.status(500).send('Internal Server Error');
-            return;
-        }
-        res.json(results);
-    });
+exports.getAllContacts = async (req, res) => {
+    try {
+        const contacts = await Contact.findAll();
+        res.json(contacts);
+    } catch (err) {
+        console.error('Error fetching contact details:', err);
+        res.status(500).send('Internal Server Error');
+    }
 };
 
-exports.addContact = (req, res) => {
+exports.addContact = async (req, res) => {
     const {
         FirstName, LastName, OfficialEmailAddress, PersonalEmailAddress, 
         OfficialPhoneNumber, PersonalPhoneNumber, Role, AssociatedAccount,
         ContactChannel, IsActive, LastContactDate, PreferredLanguage,
         DoNotContact, RecordCreatedBy, ExternalSystemID, Notes
-    } = req.body; // Destructuring the contact data from the request body
+    } = req.body;
 
-    const query = `
-        INSERT INTO Contacts 
-        (FirstName, LastName, OfficialEmailAddress, PersonalEmailAddress, 
-        OfficialPhoneNumber, PersonalPhoneNumber, Role, AssociatedAccount, 
-        ContactChannel, IsActive, LastContactDate, PreferredLanguage, 
-        DoNotContact, RecordCreatedBy, ExternalSystemID, Notes)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-    `;
+    try {
+        const newContact = await Contact.create({
+            FirstName,
+            LastName,
+            OfficialEmailAddress,
+            PersonalEmailAddress,
+            OfficialPhoneNumber,
+            PersonalPhoneNumber,
+            Role,
+            AssociatedAccount,
+            ContactChannel,
+            IsActive,
+            LastContactDate,
+            PreferredLanguage,
+            DoNotContact,
+            RecordCreatedBy,
+            ExternalSystemID,
+            Notes
+        });
 
-    const values = [
-        FirstName, LastName, OfficialEmailAddress, PersonalEmailAddress,
-        OfficialPhoneNumber, PersonalPhoneNumber, Role, AssociatedAccount,
-        ContactChannel, IsActive, LastContactDate, PreferredLanguage,
-        DoNotContact, RecordCreatedBy, ExternalSystemID, Notes
-    ];
-
-    db.query(query, values, (err, result) => {
-        if (err) {
-            console.error('Error adding contact:', err);
-            res.status(500).send('Internal Server Error');
-            return;
-        }
-        res.status(201).send({ message: 'Contact added successfully', contactID: result.insertId });
-    });
+        res.status(201).send({ message: 'Contact added successfully', contactID: newContact.ContactID });
+    } catch (err) {
+        console.error('Error adding contact:', err);
+        res.status(500).send('Internal Server Error');
+    }
 };
 
-exports.updateContact = (req, res) => {
+exports.updateContact = async (req, res) => {
     const contactID = req.params.id;
     const {
         FirstName, LastName, OfficialEmailAddress, PersonalEmailAddress, 
@@ -72,33 +69,36 @@ exports.updateContact = (req, res) => {
         DoNotContact, RecordLastModifiedBy, ExternalSystemID, Notes
     } = req.body;
 
-    const query = `
-        UPDATE Contacts 
-        SET FirstName = ?, LastName = ?, OfficialEmailAddress = ?, PersonalEmailAddress = ?, 
-        OfficialPhoneNumber = ?, PersonalPhoneNumber = ?, Role = ?, AssociatedAccount = ?, 
-        ContactChannel = ?, IsActive = ?, LastContactDate = ?, PreferredLanguage = ?, 
-        DoNotContact = ?, RecordLastModifiedBy = ?, ExternalSystemID = ?, Notes = ?
-        WHERE ContactID = ?
-    `;
+    try {
+        const [updatedRowsCount] = await Contact.update(
+            {
+                FirstName,
+                LastName,
+                OfficialEmailAddress,
+                PersonalEmailAddress,
+                OfficialPhoneNumber,
+                PersonalPhoneNumber,
+                Role,
+                AssociatedAccount,
+                ContactChannel,
+                IsActive,
+                LastContactDate,
+                PreferredLanguage,
+                DoNotContact,
+                RecordLastModifiedBy,
+                ExternalSystemID,
+                Notes
+            },
+            { where: { ContactID: contactID } }
+        );
 
-    const values = [
-        FirstName, LastName, OfficialEmailAddress, PersonalEmailAddress,
-        OfficialPhoneNumber, PersonalPhoneNumber, Role, AssociatedAccount,
-        ContactChannel, IsActive, LastContactDate, PreferredLanguage,
-        DoNotContact, RecordLastModifiedBy, ExternalSystemID, Notes, contactID
-    ];
-
-    db.query(query, values, (err, result) => {
-        if (err) {
-            console.error('Error updating contact:', err);
-            res.status(500).send('Internal Server Error');
-            return;
-        }
-
-        if (result.affectedRows === 0) {
+        if (updatedRowsCount === 0) {
             return res.status(404).send('Contact not found');
         }
 
         res.send({ message: 'Contact updated successfully' });
-    });
+    } catch (err) {
+        console.error('Error updating contact:', err);
+        res.status(500).send('Internal Server Error');
+    }
 };

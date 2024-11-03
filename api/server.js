@@ -1,16 +1,19 @@
 const express = require('express');
 const mysql = require('mysql2');
 const path = require('path');
-require('dotenv').config();
+const dotenv = require('dotenv');
 const YAML = require('yamljs');
 const swaggerUi = require('swagger-ui-express');
+
+//const sequelize = require('./models').sequelize;
+const { sequelize } = require('./db'); // Import from the correct file location
+dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 // Swagger documentation
 const swaggerDocument = YAML.load(path.join(__dirname, 'api-docs/swagger.yaml'));
-
 
 // Database connection configuration
 const db = mysql.createConnection({
@@ -26,22 +29,27 @@ db.connect((err) => {
         console.error('Error connecting to the database:', err);
         return;
     }
-    console.log('Connected to the database.');
+    console.log('Connected to the MySQL database.');
 });
 
-// Middleware to parse JSON requests
-app.use(express.json());
 
-// Middleware to parse JSON requests
+
+// Sync Sequelize Database
+sequelize.sync({ force: false })  // Set `force: true` only for initial testing
+    .then(() => {
+        console.log('Database synced with Sequelize.');
+    })
+    .catch((err) => {
+        console.error('Error syncing Sequelize database:', err);
+    });
+
+// Middleware
 app.use(express.json());
 
 // Serve the Swagger documentation
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Import and use the routes
-// Serve static files from the React app, unsure how this will react with the above .use()
-app.use(express.static(path.join(__dirname, '../client/build')));
-
 const contactsRoutes = require('./routes/contacts');
 const accountsRoutes = require('./routes/accounts');
 const donationsRoutes = require('./routes/donations');

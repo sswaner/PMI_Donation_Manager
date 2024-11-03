@@ -26,7 +26,7 @@ export default function TranslateCustom ()
                 className=" btn btn-outline-primary "
                 onClick={ () => setopenDropDown( !openDropDown ) }
             >
-                <h6  ><span className="oi oi-globe mr-1"></span>{ i18n.language == "en" ? 'English' : 'Indonasian' }</h6>
+                <h6  ><span className="oi oi-globe mr-1"></span>{ i18n.language == "en" ? 'English' : 'Bahasa Indonesia' }</h6>
             </button>
             <div className={ "dropdown-menu dropdown-menu-rich dropdown-menu-right " + ( openDropDown ? 'd-block' : '' ) } >
                 <div className="dropdown-arrow" />
@@ -36,7 +36,7 @@ export default function TranslateCustom ()
                     </span>
                 </h6> */}
                 <div className=" perfect-scrollbar">
-                    <button type="button" className="dropdown-item " onClick={ () => changeLanguage( 'en' ) }>
+                    <button type="button" className="dropdown-item " onClick={ () => changeLanguage( 'en-US' ) }>
                         {/* <div className="user-avatar">
                             <img src="/images/avatars/profile.png" alt="" />
                         </div> */}
@@ -44,12 +44,12 @@ export default function TranslateCustom ()
                             <p className="text"> English </p>
                         </div>
                     </button>
-                    <button type="button" className="dropdown-item " onClick={ () => changeLanguage( 'in' ) }>
+                    <button type="button" className="dropdown-item " onClick={ () => changeLanguage( 'id' ) }>
                         {/* <div className="user-avatar rounded">
                             <img src="/images/avatars/profile.png" alt="" />
                         </div> */}
                         <div className="dropdown-item-body">
-                            <p className="text"> Indonasian </p>
+                            <p className="text"> Bahasa Indonesia </p>
                         </div>
                     </button>
 

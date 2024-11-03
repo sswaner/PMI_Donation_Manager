@@ -4,6 +4,7 @@ api/.env
 server/src/node_modules
 client/node_modules/
 client/build/
+client/dist/
 node_modules
 test/api_tests/.env
 test/api_tests/__pycache__/

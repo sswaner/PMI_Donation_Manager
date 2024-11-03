@@ -25,7 +25,7 @@ export default function Login ()
     const { register, reset, handleSubmit, watch, formState: { errors }, setValue, trigger, getValues } = useForm();
     const { t, i18n } = useTranslation();
 
-    const changeLanguage = ( e, lan = "en" ) =>
+    const changeLanguage = ( e, lan = "en-US" ) =>
     {
         e.preventDefault();
         i18n.changeLanguage( lan );
@@ -188,7 +188,7 @@ export default function Login ()
                     <div className="text-center pt-3">
                         <Link className="link" onClick={ ( e ) => changeLanguage( e, 'en' ) }>English </Link>
                         <span className="mx-2">·</span>
-                        <Link className="link" onClick={ ( e ) => changeLanguage( e, 'in' ) }>Indonasian</Link>
+                        <Link className="link" onClick={ ( e ) => changeLanguage( e, 'id' ) }>Bahasa Indonesia</Link>
                     </div>
                 </form>
 
