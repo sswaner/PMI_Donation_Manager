@@ -35,7 +35,7 @@ CREATE TABLE `Accounts` (
   CONSTRAINT `Accounts_ibfk_1` FOREIGN KEY (`AccountManagerID`) REFERENCES `Users` (`UserID`),
   CONSTRAINT `Accounts_ibfk_2` FOREIGN KEY (`RecordCreatedBy`) REFERENCES `Users` (`UserID`),
   CONSTRAINT `Accounts_ibfk_3` FOREIGN KEY (`RecordLastModifiedBy`) REFERENCES `Users` (`UserID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
 CREATE TABLE Contacts (
@@ -165,5 +165,35 @@ CREATE TABLE InKindDonations (
     ReceivedLocation VARCHAR(255),
     Notes TEXT,
     FOREIGN KEY (DonationID) REFERENCES Donations(DonationID)
+);
+
+
+
+CREATE TABLE Activities (
+    ActivityID INT AUTO_INCREMENT PRIMARY KEY,
+    AccountID INT NOT NULL,
+    ContactID INT NULL,  -- This column allows linking an activity to a specific contact, but it's optional
+    ActivityType ENUM('Email', 'Meeting', 'Phone Call', 'Note') NOT NULL,
+    ActivityDate DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CreatedBy INT NOT NULL,
+    Description TEXT,
+    FOREIGN KEY (AccountID) REFERENCES Accounts(AccountID),
+    FOREIGN KEY (ContactID) REFERENCES Contacts(ContactID) ON DELETE SET NULL,  -- Optional link to the Contacts table
+    FOREIGN KEY (CreatedBy) REFERENCES Users(UserID)
+);
+
+
+CREATE TABLE Addresses (
+    AddressID INT AUTO_INCREMENT PRIMARY KEY,
+    AccountID INT NOT NULL,              -- Foreign key to Accounts table
+    ContactID INT NULL,                  -- Optional foreign key to Contacts table
+    Building VARCHAR(255),               -- Building name or identifier, optional
+    AddressLocation VARCHAR(255) NOT NULL, -- Street address, including RT/RW
+    City VARCHAR(100) NOT NULL,          -- City or district name
+    Province VARCHAR(100) NOT NULL,      -- Province name
+    PostalCode VARCHAR(10) NOT NULL,     -- Postal code
+    Country VARCHAR(100) NOT NULL DEFAULT 'Indonesia', -- Country name, default to 'Indonesia'
+    FOREIGN KEY (AccountID) REFERENCES Accounts(AccountID),
+    FOREIGN KEY (ContactID) REFERENCES Contacts(ContactID) ON DELETE SET NULL  -- Optional link to the Contacts table
 );
 

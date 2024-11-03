@@ -1,0 +1,248 @@
+{
+    "page": {
+        "admin": {
+            "comman": {
+                "header": {
+                    "logout": "keluar"
+                },
+                "sidebar": {
+                    "AccountManagement": "Manajemen Akun"
+                },
+                "addButton": "Tambahkan Baru",
+                "backButton": "Kembali",
+                "updateButton": "Memperbarui",
+                "addDonationsButton": "Tambahkan Donasi",
+                "add": "Menambahkan",
+                "addContactButton": "Tambahkan Kontak"
+            },
+            "login": {
+                "username": "nama belakang",
+                "password": "kata sandi",
+                "sign-in": "masuk",
+                "footer": "© 2024 Semua Hak Dilindungi Undang-Undang"
+            },
+            "account": {
+                "title": "Akun Saya",
+                "organizationName": "Nama Organisasi",
+                "accountType": "Jenis Akun",
+                "accountSize": "Ukuran Akun",
+                "givingPotential": "Memberikan Potensi",
+                "segment": "Segmen",
+                "accountLocation": "Lokasi Akun",
+                "action": "Tindakan",
+                "edit": "Sunting"
+            },
+            "addAccount": {
+                "title": "Tambahkan Akun",
+                "Name": "Nama",
+                "accountSize": "Ukuran Akun",
+                "accountType": "Jenis Akun",
+                "accountChannel": "Saluran Akun",
+                "segment": "Segmen",
+                "givingPotential": "Memberikan Potensi",
+                "priorDonations": "Donasi Sebelumnya",
+                "primaryLocation": "Lokasi Utama",
+                "SIKAPID": "ID SIKAP",
+                "notes": "Catatan",
+                "add": "menambahkan"
+            },
+            "editAccount": {
+                "title": "Sunting Akun",
+                "Name": "Nama",
+                "accountSize": "Ukuran Akun",
+                "accountType": "Jenis Akun",
+                "accountChannel": "Saluran Akun",
+                "segment": "Segmen",
+                "givingPotential": "Memberikan Potensi",
+                "priorDonations": "Donasi Sebelumnya",
+                "primaryLocation": "Lokasi Utama",
+                "SIKAPID": "ID SIKAP",
+                "notes": "Catatan",
+                "SegmentDrop": {
+                    "Select": "Memilih",
+                    "Retail": "Pengecer",
+                    "Energy": "Energi"
+                },
+                "activityAdd": "Aktivitas Tambah",
+                "activityType": "Jenis Aktivitas",
+                "Contact": "Kontak",
+                "Campain": "Kampanye",
+                "ActivityTypeDrop": {
+                    "Select": "Memilih",
+                    "baliEducationFundraiser": "Penggalangan Dana Pendidikan Bali",
+                    "sumatraEarthquakeRelief": "Bantuan Gempa Sumatera"
+                },
+                "Description": "Catatan Aktivitas",
+                "add": "Menambahkan",
+                "activityList": "Daftar Aktivitas",
+                "DonationDate": "Tanggal",
+                "ContactID": "Kontak",
+                "CampaignID": "Kampanye",
+                "ActivityType": "Jenis",
+                "Designation": "Dibuat Oleh",
+                "DonationID": "Tindakan",
+                "edit": "Sunting",
+                "donationList": "Daftar Donasi",
+                "donationDate": "Tanggal Donasi",
+                "DonationStatus": "Status",
+                "InKind": "dalam bentuk barang",
+                "DonationDesignation": "Penamaan",
+                "contactListTitle": "Daftar Kontak",
+                "DoNotContact": "Jangan Hubungi",
+                "FirstName": "Nama depan",
+                "LastName": "Nama Belakang",
+                "OfficialEmailAddress": "Alamat Surel",
+                "OfficialPhoneNumber": "Nomor telepon",
+                "Role": "Peran",
+                "accountEditTitle": "Pengeditan Akun",
+                "activityEditTitle": "Pengeditan Aktivitas"
+            },
+            "donationList": {
+                "donationDate": "Tanggal Donasi",
+                "DonationStatus": "Status",
+                "InKind": "dalam bentuk barang",
+                "Designation": "Penamaan",
+                "DonationID": "Tindakan",
+                "edit": "Sunting",
+                "title": "Daftar Donasi"
+            },
+            "activityList": {
+                "DonationDate": "Tanggal",
+                "ContactID": "Kontak",
+                "CampaignID": "Kampanye",
+                "ActivityType": "Jenis",
+                "Designation": "Dibuat Oleh",
+                "Description": "Keterangan",
+                "DonationID": "Tindakan",
+                "edit": "Sunting"
+            },
+            "editActivity": {
+                "activityType": "Jenis Aktivitas",
+                "ContactID": "Kontak",
+                "CampaignID": "Kampanye",
+                "ActivityType": "Jenis",
+                "ActivityTypeDrop": {
+                    "Select": "Memilih",
+                    "baliEducationFundraiser": "Penggalangan Dana Pendidikan Bali",
+                    "sumatraEarthquakeRelief": "Bantuan Gempa Sumatera"
+                },
+                "activityNote": "Catatan Aktivitas"
+            },
+            "contactList": {
+                "DoNotContact": "Jangan Hubungi",
+                "FirstName": "Nama depan",
+                "LastName": "Nama Belakang",
+                "OfficialEmailAddress": "Alamat Surel",
+                "OfficialPhoneNumber": "Nomor telepon",
+                "Role": "Peran",
+                "DonationID": "Tindakan",
+                "LastContactDate": "Kontak Terakhir",
+                "edit": "Sunting"
+            },
+            "addDonations": {
+                "addDonation": "Tambahkan Donasi",
+                "Campaign": "Kampanye",
+                "ActivityTypeDrop": {
+                    "Select": "Memilih",
+                    "baliEducationFundraiser": "Penggalangan Dana Pendidikan Bali",
+                    "sumatraEarthquakeRelief": "Bantuan Gempa Sumatera"
+                },
+                "Amount": "Jumlah",
+                "donationType": "Jenis Donasi",
+                "donationTypeDrop": {
+                    "Solicited": "Diminta",
+                    "Committed": "Berkomitmen",
+                    "Received": "Diterima"
+                },
+                "DonationDate": "Tanggal",
+                "Currency": "Mata uang",
+                "CurrencyDrop": {
+                    "Select": "Memilih",
+                    "IDR": "Rp"
+                },
+                "source": "Sumber Donasi",
+                "donationdesignation": "Penunjukan Donasi",
+                "Contact": "Kontak",
+                "donation_notes": "Catatan Donasi",
+                "ExternalSystemID": "Id Sistem Eksternal",
+                "InKind": "Ini adalah sumbangan dalam bentuk barang"
+            },
+            "editDonations": {
+                "editDonation": "Sunting Donasi",
+                "Campaign": "Kampanye",
+                "ActivityTypeDrop": {
+                    "Select": "Memilih",
+                    "baliEducationFundraiser": "Penggalangan Dana Pendidikan Bali",
+                    "sumatraEarthquakeRelief": "Bantuan Gempa Sumatera"
+                },
+                "Amount": "Jumlah",
+                "donationType": "Jenis Donasi",
+                "donationTypeDrop": {
+                    "Solicited": "Diminta",
+                    "Committed": "Berkomitmen",
+                    "Received": "Diterima"
+                },
+                "DonationDate": "Tanggal",
+                "Currency": "Mata uang",
+                "CurrencyDrop": {
+                    "Select": "Memilih",
+                    "IDR": "Rp"
+                },
+                "source": "Sumber Donasi",
+                "donationdesignation": "Penunjukan Donasi",
+                "Contact": "Kontak",
+                "ContactDrop": {
+                    "Select": "Memilih"
+                },
+                "donation_notes": "Catatan Donasi",
+                "ExternalSystemID": "Id Sistem Eksternal",
+                "InKind": "Ini adalah sumbangan dalam bentuk barang"
+            },
+            "addContact": {
+                "title": "Tambahkan Kontak",
+                "firstName": "Nama depan",
+                "LastName": "Nama Belakang",
+                "Role": "Peran/Judul",
+                "DoNotContact": "Jangan Hubungi",
+                "OfficialEmailAddress": "Surel Resmi",
+                "PersonalEmailAddress": "Email Pribadi",
+                "OfficialPhoneNumber": "Telepon Resmi",
+                "PersonalPhoneNumber": "Nomor Telepon Pribadi",
+                "PreferredLanguage": "Bahasa Pilihan",
+                "PreferredLanguageDrop": {
+                    "Select": "Bahasa Indonesia",
+                    "Indonesian": "Indonesia",
+                    "English": "Bahasa inggris"
+                },
+                "ContactChannel": "Metode Kontak Pilihan",
+                "ContactChannelDrop": {
+                    "Select": "Memilih",
+                    "Email": "E-mail",
+                    "Call": "Panggilan"
+                },
+                "IsActive": "Kontak Aktif",
+                "Notes": "Catatan Kontak"
+            },
+            "editContact": {
+                "title": "Sunting Kontak",
+                "firstName": "Nama depan",
+                "LastName": "Nama Belakang",
+                "Role": "Peran/Judul",
+                "DoNotContact": "Jangan Hubungi",
+                "OfficialEmailAddress": "Surel Resmi",
+                "PersonalEmailAddress": "Email Pribadi",
+                "OfficialPhoneNumber": "Telepon Resmi",
+                "PersonalPhoneNumber": "Nomor Telepon Pribadi",
+                "PreferredLanguage": "Bahasa Pilihan",
+                "ContactChannel": "Metode Kontak Pilihan",
+                "PreferredLanguageDrop": {
+                    "Select": "Bahasa Indonesia",
+                    "Indonesian": "Indonesia",
+                    "English": "Bahasa inggris"
+                },
+                "IsActive": "Kontak Aktif",
+                "Notes": "Catatan Kontak"
+            }
+        }
+    }
+}

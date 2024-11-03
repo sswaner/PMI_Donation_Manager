@@ -1,0 +1,248 @@
+{
+    "page": {
+        "admin": {
+            "comman": {
+                "header": {
+                    "logout": "logout"
+                },
+                "sidebar": {
+                    "AccountManagement": "Account Management"
+                },
+                "addButton": "Add New",
+                "backButton": "Back",
+                "updateButton": "Update",
+                "addDonationsButton": "Add Donations",
+                "add": "Add",
+                "addContactButton": "Add Contact"
+            },
+            "login": {
+                "username": "username",
+                "password": "password",
+                "sign-in": "Sign In",
+                "footer": "© 2024 All Rights Reserved"
+            },
+            "account": {
+                "title": "My Account",
+                "organizationName": "Organization Name",
+                "accountType": "Account Type",
+                "accountSize": "Account Size",
+                "givingPotential": "Giving Potential",
+                "segment": "Segment",
+                "accountLocation": "Account Location",
+                "action": "Action",
+                "edit": "Edit"
+            },
+            "addAccount": {
+                "title": "Add Account",
+                "Name": "Name",
+                "accountSize": "Account Size",
+                "accountType": "Account Type",
+                "accountChannel": "Account Channel",
+                "segment": "Segment",
+                "givingPotential": "Giving Potential",
+                "priorDonations": "Prior Donations",
+                "primaryLocation": "Primary Location",
+                "SIKAPID": "SIKAP ID",
+                "notes": "Notes",
+                "add": "Add"
+            },
+            "editAccount": {
+                "title": "Edit Account",
+                "Name": "Name",
+                "accountSize": "Account Size",
+                "accountType": "Account Type",
+                "accountChannel": "Account Channel",
+                "segment": "Segment",
+                "givingPotential": "Giving Potential",
+                "priorDonations": "Prior Donations",
+                "primaryLocation": "Primary Location",
+                "SIKAPID": "SIKAP ID",
+                "notes": "Notes",
+                "SegmentDrop": {
+                    "Select": "Select",
+                    "Retail": "Retail",
+                    "Energy": "Energy"
+                },
+                "activityAdd": "Activity Add",
+                "activityType": "Activity Type",
+                "Contact": "Contact",
+                "Campain": "Campain",
+                "ActivityTypeDrop": {
+                    "Select": "Select",
+                    "baliEducationFundraiser": "Bali Education Fundraiser",
+                    "sumatraEarthquakeRelief": "Sumatra Earthquake Relief"
+                },
+                "Description": "Activity Note",
+                "add": "Add",
+                "activityList": "Activity List",
+                "DonationDate": "Date",
+                "ContactID": "Contact",
+                "CampaignID": "Campaign",
+                "ActivityType": "Type",
+                "Designation": "Created By",
+                "DonationID": "Action",
+                "edit": "Edit",
+                "donationList": "Donation List",
+                "donationDate": "Donation Date",
+                "DonationStatus": "Status",
+                "InKind": "In-Kind",
+                "DonationDesignation": "Designation",
+                "contactListTitle": "Contact List",
+                "DoNotContact": "Do Not Contact",
+                "FirstName": "First Name",
+                "LastName": "Last Name",
+                "OfficialEmailAddress": "Email Address",
+                "OfficialPhoneNumber": "Phone Number",
+                "Role": "Role",
+                "accountEditTitle": "Account Edit",
+                "activityEditTitle": "Activity Edit"
+            },
+            "donationList": {
+                "donationDate": "Donation Date",
+                "DonationStatus": "Status",
+                "InKind": "In-Kind",
+                "Designation": "Designation",
+                "DonationID": "Action",
+                "edit": "Edit",
+                "title": "Donation List"
+            },
+            "activityList": {
+                "DonationDate": "Date",
+                "ContactID": "Contact",
+                "CampaignID": "Campaign",
+                "ActivityType": "Type",
+                "Designation": "Created By",
+                "Description": "Description",
+                "DonationID": "Action",
+                "edit": "Edit"
+            },
+            "editActivity": {
+                "activityType": "Activity Type",
+                "ContactID": "Contact",
+                "CampaignID": "Campaign",
+                "ActivityType": "Type",
+                "ActivityTypeDrop": {
+                    "Select": "Select",
+                    "baliEducationFundraiser": "Bali Education Fundraiser",
+                    "sumatraEarthquakeRelief": "Sumatra Earthquake Relief"
+                },
+                "activityNote": "Activity Note"
+            },
+            "contactList": {
+                "DoNotContact": "Do Not Contact",
+                "FirstName": "First Name",
+                "LastName": "Last Name",
+                "OfficialEmailAddress": "Email Address",
+                "OfficialPhoneNumber": "Phone Number",
+                "Role": "Role",
+                "DonationID": "Action",
+                "LastContactDate": "Last Contact",
+                "edit": "Edit"
+            },
+            "addDonations": {
+                "addDonation": "Add Donation",
+                "Campaign": "Campaign",
+                "ActivityTypeDrop": {
+                    "Select": "Select",
+                    "baliEducationFundraiser": "Bali Education Fundraiser",
+                    "sumatraEarthquakeRelief": "Sumatra Earthquake Relief"
+                },
+                "Amount": "Amount",
+                "donationType": "Donation Type",
+                "donationTypeDrop": {
+                    "Solicited": "Solicited",
+                    "Committed": "Committed",
+                    "Received": "Received"
+                },
+                "DonationDate": "Date",
+                "Currency": "Currency",
+                "CurrencyDrop": {
+                    "Select": "Select",
+                    "IDR": "IDR"
+                },
+                "source": "Donation Source",
+                "donationdesignation": "Donation Designations",
+                "Contact": "Contact",
+                "donation_notes": "Donation Note",
+                "ExternalSystemID": "External System Id",
+                "InKind": "This is an in-kind donation"
+            },
+            "editDonations": {
+                "editDonation": "Edit Donation",
+                "Campaign": "Campaign",
+                "ActivityTypeDrop": {
+                    "Select": "Select",
+                    "baliEducationFundraiser": "Bali Education Fundraiser",
+                    "sumatraEarthquakeRelief": "Sumatra Earthquake Relief"
+                },
+                "Amount": "Amount",
+                "donationType": "Donation Type",
+                "donationTypeDrop": {
+                    "Solicited": "Solicited",
+                    "Committed": "Committed",
+                    "Received": "Received"
+                },
+                "DonationDate": "Date",
+                "Currency": "Currency",
+                "CurrencyDrop": {
+                    "Select": "Select",
+                    "IDR": "IDR"
+                },
+                "source": "Donation Source",
+                "donationdesignation": "Donation Designations",
+                "Contact": "Contact",
+                "ContactDrop": {
+                    "Select": "Select"
+                },
+                "donation_notes": "Donation Note",
+                "ExternalSystemID": "External System Id",
+                "InKind": "This is an in-kind donation"
+            },
+            "addContact": {
+                "title": "Add Contact",
+                "firstName": "First Name",
+                "LastName": "Last Name",
+                "Role": "Role/Title",
+                "DoNotContact": "Do Not Contact",
+                "OfficialEmailAddress": "Official Email",
+                "PersonalEmailAddress": "Personal Email",
+                "OfficialPhoneNumber": "Official Phone",
+                "PersonalPhoneNumber": "Personal Phone Number",
+                "PreferredLanguage": "Preferred Language",
+                "PreferredLanguageDrop": {
+                    "Select": "Bahasa Indonesia",
+                    "Indonesian": "Indonesian",
+                    "English": "English"
+                },
+                "ContactChannel": "Preferred Method of Contact",
+                "ContactChannelDrop": {
+                    "Select": "Select",
+                    "Email": "Email",
+                    "Call": "Call"
+                },
+                "IsActive": "Active Contact",
+                "Notes": "Contact Notes"
+            },
+            "editContact": {
+                "title": "Edit Contact",
+                "firstName": "First Name",
+                "LastName": "Last Name",
+                "Role": "Role/Title",
+                "DoNotContact": "Do Not Contact",
+                "OfficialEmailAddress": "Official Email",
+                "PersonalEmailAddress": "Personal Email",
+                "OfficialPhoneNumber": "Official Phone",
+                "PersonalPhoneNumber": "Personal Phone Number",
+                "PreferredLanguage": "Preferred Language",
+                "ContactChannel": "Preferred Method of Contact",
+                "PreferredLanguageDrop": {
+                    "Select": "Bahasa Indonesia",
+                    "Indonesian": "Indonesian",
+                    "English": "English"
+                },
+                "IsActive": "Active Contact",
+                "Notes": "Contact Notes"
+            }
+        }
+    }
+}
