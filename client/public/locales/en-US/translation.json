@@ -6,7 +6,8 @@
                     "logout": "logout"
                 },
                 "sidebar": {
-                    "AccountManagement": "Account Management"
+                    "AccountManagement": "Account Management",
+                    "AccountSearch": "Account Search"
                 },
                 "addButton": "Add New",
                 "backButton": "Back",
@@ -137,6 +138,7 @@
                 "Role": "Role",
                 "DonationID": "Action",
                 "LastContactDate": "Last Contact",
+                "ContactChannel": "Preferred Way Of Contact",
                 "edit": "Edit"
             },
             "addDonations": {

@@ -47,6 +47,7 @@ export const Routes = [
                 path: 'admin',
                 children: [
                     { path: 'account', element: <AccountList /> },
+                    { path: 'account/search', element: <AccountList search={true} /> },
                     { path: 'account/add', element: <AccountAdd /> },
                     { path: 'account/edit/:rid', element: <AccountEdit /> },
 
