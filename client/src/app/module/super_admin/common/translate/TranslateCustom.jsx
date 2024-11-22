@@ -12,7 +12,7 @@ export default function TranslateCustom ()
 
     const changeLanguage = ( lan = "en" ) =>
     {
-        // console.log( i18n );
+        console.log(i18n.language );
         i18n.changeLanguage( lan );
         setopenDropDown( false )
 
@@ -26,7 +26,7 @@ export default function TranslateCustom ()
                 className=" btn btn-outline-primary "
                 onClick={ () => setopenDropDown( !openDropDown ) }
             >
-                <h6  ><span className="oi oi-globe mr-1"></span>{ i18n.language == "en" ? 'English' : 'Bahasa Indonesia' }</h6>
+                <h6  ><span className="oi oi-globe mr-1"></span>{ i18n.language == "en-US" ? 'English' : 'Bahasa Indonesia' }</h6>
             </button>
             <div className={ "dropdown-menu dropdown-menu-rich dropdown-menu-right " + ( openDropDown ? 'd-block' : '' ) } >
                 <div className="dropdown-arrow" />

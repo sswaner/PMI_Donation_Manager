@@ -258,8 +258,10 @@ export default function ContactAdd ( { AccountId, showModal, setShowModal, table
             { ...register( "ContactChannel", { required: true } ) }
         >
             <option value="">Select</option>
+            <option value="Phone">Phone</option>
             <option value="Email">Email</option>
             <option value="Call">Call</option>
+            <option value="WhatsApp">WhatsApp</option>
 
 
         </select>

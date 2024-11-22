@@ -6,7 +6,9 @@
                     "logout": "keluar"
                 },
                 "sidebar": {
-                    "AccountManagement": "Manajemen Akun"
+                    "AccountManagement": "Manajemen Akun",
+                    "AccountSearch": "Pencarian Akun"
+
                 },
                 "addButton": "Tambahkan Baru",
                 "backButton": "Kembali",
@@ -137,6 +139,7 @@
                 "Role": "Peran",
                 "DonationID": "Tindakan",
                 "LastContactDate": "Kontak Terakhir",
+                "ContactChannel": "Cara Kontak Pilihan",
                 "edit": "Sunting"
             },
             "addDonations": {
