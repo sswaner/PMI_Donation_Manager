@@ -18,7 +18,7 @@ const { sequelize } = require("./db"); // Import from the correct file location
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3000;
 
 // Database connection configuration
 const db = mysql.createConnection({

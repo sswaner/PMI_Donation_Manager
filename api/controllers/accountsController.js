@@ -101,7 +101,7 @@ exports.getAccountOverview = async (req, res) => {
 exports.createAccount = async (req, res) => {
     const {
         OrganizationName, AccountType, AccountSize, GivingPotential, AccountLocation,
-        AccountChannel, Segment, PriorDonations, AccountManagerID, RecordCreatedBy,
+        AccountChannel, Segment , PriorDonations, AccountManagerID, RecordCreatedBy,
         ExternalSystemID, Notes
     } = req.body;
 
@@ -119,7 +119,7 @@ exports.createAccount = async (req, res) => {
             GivingPotential,
             AccountLocation,
             AccountChannel,
-            Segment,
+            SegmentID,
             PriorDonations,
             AccountManagerID,
             RecordCreatedBy,
@@ -141,7 +141,7 @@ exports.updateAccount = async (req, res) => {
     const accountID = req.params.id;
     const {
         OrganizationName, AccountType, AccountSize, GivingPotential, AccountLocation,
-        AccountChannel, Segment, PriorDonations, AccountManagerID, RecordLastModifiedBy,
+        AccountChannel, SegmentID, PriorDonations, AccountManagerID, RecordLastModifiedBy,
         ExternalSystemID, Notes
     } = req.body;
 
@@ -159,7 +159,7 @@ exports.updateAccount = async (req, res) => {
                 GivingPotential,
                 AccountLocation,
                 AccountChannel,
-                Segment,
+                SegmentID,
                 PriorDonations,
                 AccountManagerID,
                 RecordLastModifiedBy,

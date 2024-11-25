@@ -1,4 +1,3 @@
-// models/account.js
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 const User = require('./user');
@@ -6,6 +5,7 @@ const Contact = require('./contact');
 const Donation = require('./donation');
 const Activity = require('./activity');
 const Address = require('./address');
+const DropdownOption = require('./dropdown'); // Add the DropdownOption model
 
 const Account = sequelize.define('Account', {
   AccountID: {
@@ -37,9 +37,13 @@ const Account = sequelize.define('Account', {
     type: DataTypes.STRING(50),
     allowNull: true,
   },
-  Segment: {
-    type: DataTypes.ENUM('Energy', 'Retail'),
+  SegmentID: { // Updated field to reference DropdownOptions table
+    type: DataTypes.INTEGER,
     allowNull: true,
+    references: {
+      model: DropdownOption,
+      key: 'ID',
+    },
   },
   PriorDonations: {
     type: DataTypes.DECIMAL(15, 2),
@@ -90,26 +94,16 @@ const Account = sequelize.define('Account', {
   timestamps: false,
 });
 
-
-// // Define associations with `User` for foreign keys
-// Account.belongsTo(User, { as: 'AccountManager', foreignKey: 'AccountManagerID' });
-// Account.belongsTo(User, { as: 'CreatedBy', foreignKey: 'RecordCreatedBy' });
-// Account.belongsTo(User, { as: 'LastModifiedBy', foreignKey: 'RecordLastModifiedBy' });
-
-// // Define `hasMany` relationships for tables referencing `AccountID`
-// Account.hasMany(Contact, { as: 'Contacts', foreignKey: 'AssociatedAccount' });
-// Account.hasMany(Donation, { as: 'Donations', foreignKey: 'AccountID' });
-// Account.hasMany(Activity, { as: 'Activities', foreignKey: 'AccountID' });
-// Account.hasMany(Address, { as: 'Addresses', foreignKey: 'AccountID' });
-
+// Associations
 Account.associate = function(models) {
-    Account.belongsTo(models.User, { as: 'AccountManager', foreignKey: 'AccountManagerID' });
-    Account.belongsTo(models.User, { as: 'CreatedBy', foreignKey: 'RecordCreatedBy' });
-    Account.belongsTo(models.User, { as: 'LastModifiedBy', foreignKey: 'RecordLastModifiedBy' });
-    Account.hasMany(models.Contact, { as: 'Contacts', foreignKey: 'AssociatedAccount' });
-    Account.hasMany(models.Donation, { as: 'Donations', foreignKey: 'AccountID' });
-    Account.hasMany(models.Activity, { as: 'Activities', foreignKey: 'AccountID' });
-    Account.hasMany(models.Address, { as: 'Addresses', foreignKey: 'AccountID' });
-  };
+  Account.belongsTo(models.User, { as: 'AccountManager', foreignKey: 'AccountManagerID' });
+  Account.belongsTo(models.User, { as: 'CreatedBy', foreignKey: 'RecordCreatedBy' });
+  Account.belongsTo(models.User, { as: 'LastModifiedBy', foreignKey: 'RecordLastModifiedBy' });
+  Account.belongsTo(models.DropdownOption, { as: 'Segment', foreignKey: 'SegmentID' }); // New association
+  Account.hasMany(models.Contact, { as: 'Contacts', foreignKey: 'AssociatedAccount' });
+  Account.hasMany(models.Donation, { as: 'Donations', foreignKey: 'AccountID' });
+  Account.hasMany(models.Activity, { as: 'Activities', foreignKey: 'AccountID' });
+  Account.hasMany(models.Address, { as: 'Addresses', foreignKey: 'AccountID' });
+};
 
 module.exports = Account;

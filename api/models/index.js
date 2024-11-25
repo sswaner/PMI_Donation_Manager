@@ -9,6 +9,7 @@ const User = require('./user');
 const Address = require('./address');
 const Donation = require('./donation');
 const Campaign = require('./campaign');  
+const DropdownOption = require('./dropdown');
 
 const models = {
   Account,
@@ -17,7 +18,8 @@ const models = {
   User,
   Address,
   Donation,
-  Campaign
+  Campaign,
+    DropdownOption,
 };
 
 // Initialize associations
