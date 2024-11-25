@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   title: Node.js Backend API
   description: API documentation for the Node.js backend handling contacts and accounts.
-  version: 1.0.0
+  version: 1.0.1
 servers:
   - url: http://localhost:3000
     description: Local development server
@@ -10,40 +10,34 @@ servers:
 paths:
   /contacts:
     get:
-      summary: Get all contacts
+      summary: "Retrieve a list of contacts"
+      description: "Returns a list of contacts with detailed information."
       responses:
-        '200':
-          description: A list of contacts
+        "200":
+          description: "A list of contacts"
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Contact'
-        '500':
-          description: Internal Server Error
+                  $ref: "#/components/schemas/Contact"
+
     post:
-      summary: Create a new contact
+      summary: "Create a new contact"
+      description: "Creates a new contact with the provided information."
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ContactInput'
+              $ref: "#/components/schemas/NewContact"
       responses:
-        '201':
-          description: Contact added successfully
+        "201":
+          description: "Contact created successfully"
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                  contactID:
-                    type: integer
-        '500':
-          description: Internal Server Error
+                $ref: "#/components/schemas/Contact"
 
   /contacts/{id}:
     get:
@@ -56,15 +50,15 @@ paths:
           required: true
           description: Numeric ID of the contact to retrieve
       responses:
-        '200':
+        "200":
           description: A contact object
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Contact'
-        '404':
+                $ref: "#/components/schemas/Contact"
+        "404":
           description: Contact not found
-        '500':
+        "500":
           description: Internal Server Error
     put:
       summary: Update a contact by ID
@@ -80,9 +74,9 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ContactInput'
+              $ref: "#/components/schemas/ContactInput"
       responses:
-        '200':
+        "200":
           description: Contact updated successfully
           content:
             application/json:
@@ -91,9 +85,9 @@ paths:
                 properties:
                   message:
                     type: string
-        '404':
+        "404":
           description: Contact not found
-        '500':
+        "500":
           description: Internal Server Error
     post:
       summary: Create a new contact
@@ -102,9 +96,9 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ContactInput'
+              $ref: "#/components/schemas/ContactInput"
       responses:
-        '201':
+        "201":
           description: Contact added successfully
           content:
             application/json:
@@ -407,7 +401,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Activity'
+                  $ref: "#/components/schemas/Activity"
         500:
           description: Internal Server Error
 
@@ -420,14 +414,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ActivityInput'
+              $ref: "#/components/schemas/ActivityInput"
       responses:
         201:
           description: Activity created successfully
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Activity'
+                $ref: "#/components/schemas/Activity"
         400:
           description: Missing required fields
         500:
@@ -451,7 +445,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Activity'
+                $ref: "#/components/schemas/Activity"
         404:
           description: Activity not found
         500:
@@ -473,14 +467,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ActivityInput'
+              $ref: "#/components/schemas/ActivityInput"
       responses:
         200:
           description: Activity updated successfully
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Activity'
+                $ref: "#/components/schemas/Activity"
         404:
           description: Activity not found
         500:
@@ -497,7 +491,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/User'
+                  $ref: "#/components/schemas/User"
         500:
           description: Internal Server Error
   /user/{UserID}/accounts:
@@ -520,7 +514,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/UserAccount' # Use the new subset schema
+                  $ref: "#/components/schemas/UserAccount" # Use the new subset schema
         404:
           description: No accounts found for the user
         500:
@@ -539,7 +533,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Campaign'
+                  $ref: "#/components/schemas/Campaign"
         500:
           description: Internal Server Error
 
@@ -561,7 +555,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CampaignWithEngagements'
+                $ref: "#/components/schemas/CampaignWithEngagements"
         404:
           description: Campaign not found
         500:
@@ -579,7 +573,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ActiveCampaign'
+                  $ref: "#/components/schemas/ActiveCampaign"
         500:
           description: Internal Server Error
 
@@ -594,10 +588,17 @@ components:
           type: string
         AccountType:
           type: string
-          enum: ['Corporation', 'Governmental Department', 'Aid Agency', 'Grant Foundation', 'Retail (3rd Party Fundraising)']
+          enum:
+            [
+              "Corporation",
+              "Governmental Department",
+              "Aid Agency",
+              "Grant Foundation",
+              "Retail (3rd Party Fundraising)",
+            ]
         AccountSize:
           type: string
-          enum: ['Small', 'Medium', 'Large']
+          enum: ["Small", "Medium", "Large"]
         GivingPotential:
           type: number
           format: float
@@ -607,7 +608,7 @@ components:
           type: string
         Segment:
           type: string
-          enum: ['Energy', 'Retail']
+          enum: ["Energy", "Retail"]
         PriorDonations:
           type: number
           format: float
@@ -693,14 +694,127 @@ components:
       properties:
         ContactID:
           type: integer
+          example: 16
         FirstName:
           type: string
+          example: "Fajrin"
         LastName:
           type: string
+          example: "Nasution"
+        OfficialEmailAddress:
+          type: string
+          format: email
+          example: "fajrin.nasution@pertamina.com"
+        PersonalEmailAddress:
+          type: string
+          format: email
+          example: "fajrin.nas@gmail.com"
+        OfficialPhoneNumber:
+          type: string
+          example: "+62215567890"
+        PersonalPhoneNumber:
+          type: string
+          example: "+628123456789"
         Role:
           type: string
+          example: "Corporate Social Responsibility Officer"
+        AssociatedAccount:
+          type: integer
+          example: 8
+        ContactChannel:
+          type: string
+          example: "Email"
         IsActive:
           type: boolean
+          example: true
+        LastContactDate:
+          type: string
+          format: date-time
+          example: "2024-09-05T10:30:00.000Z"
+        PreferredLanguage:
+          type: string
+          example: "Indonesian"
+        DoNotContact:
+          type: boolean
+          example: false
+        RecordCreatedBy:
+          type: integer
+          example: 1
+        RecordLastModifiedBy:
+          type: integer
+          example: 1
+        CreatedTimestamp:
+          type: string
+          format: date-time
+          example: "2024-10-04T11:34:26.000Z"
+        ModifiedTimestamp:
+          type: string
+          format: date-time
+          example: "2024-10-04T11:34:26.000Z"
+        ExternalSystemID:
+          type: string
+          example: "EXT10001"
+        Notes:
+          type: string
+          example: "CSR officer overseeing major charity projects."
+
+    NewContact:
+      type: object
+      properties:
+        FirstName:
+          type: string
+          example: "Fajrin"
+        LastName:
+          type: string
+          example: "Nasution"
+        OfficialEmailAddress:
+          type: string
+          format: email
+          example: "fajrin.nasution@pertamina.com"
+        PersonalEmailAddress:
+          type: string
+          format: email
+          example: "fajrin.nas@gmail.com"
+        OfficialPhoneNumber:
+          type: string
+          example: "+62215567890"
+        PersonalPhoneNumber:
+          type: string
+          example: "+628123456789"
+        Role:
+          type: string
+          example: "Corporate Social Responsibility Officer"
+        AssociatedAccount:
+          type: integer
+          example: 8
+        ContactChannel:
+          type: string
+          example: "Email"
+        IsActive:
+          type: boolean
+          example: true
+        LastContactDate:
+          type: string
+          format: date-time
+          example: "2024-09-05T10:30:00.000Z"
+        PreferredLanguage:
+          type: string
+          example: "Indonesian"
+        DoNotContact:
+          type: boolean
+          example: false
+        RecordCreatedBy:
+          type: integer
+          example: 1
+        RecordLastModifiedBy:
+          type: integer
+          example: 1
+        ExternalSystemID:
+          type: string
+          example: "EXT10001"
+        Notes:
+          type: string
+          example: "CSR officer overseeing major charity projects."
 
     Donation:
       type: object
@@ -718,13 +832,13 @@ components:
           format: float
         Currency:
           type: string
-          enum: ['IDR', 'USD']
+          enum: ["IDR", "USD"]
         DonationDate:
           type: string
           format: date
         DonationStatus:
           type: string
-          enum: ['Solicited', 'Committed', 'Received']
+          enum: ["Solicited", "Committed", "Received"]
         DonationSource:
           type: string
         Designation:
@@ -852,37 +966,6 @@ components:
         Notes:
           type: string
 
-    Activity:
-      type: object
-      properties:
-        ActivityID:
-          type: integer
-          description: Unique identifier for the activity
-        AccountID:
-          type: integer
-          description: Reference to the account the activity is related to
-        ContactID:
-          type: integer
-          description: Optional reference to the contact the activity is related to
-        ActivityType:
-          type: string
-          enum:
-            - Email
-            - Meeting
-            - Phone Call
-            - Note
-          description: Type of activity
-        ActivityDate:
-          type: string
-          format: date-time
-          description: Date and time of the activity
-        CreatedBy:
-          type: integer
-          description: ID of the user who created the activity
-        Description:
-          type: string
-          description: Detailed description of the activity
-
     ActivityInput:
       type: object
       required:
@@ -974,13 +1057,13 @@ components:
     CampaignWithEngagements:
       type: object
       allOf:
-        - $ref: '#/components/schemas/Campaign'
+        - $ref: "#/components/schemas/Campaign"
       properties:
         AccountEngagements:
           type: array
           description: List of accounts engaged with the campaign
           items:
-            $ref: '#/components/schemas/AccountEngagement'
+            $ref: "#/components/schemas/AccountEngagement"
 
     AccountEngagement:
       type: object
