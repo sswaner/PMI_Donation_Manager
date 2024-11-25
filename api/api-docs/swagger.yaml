@@ -577,6 +577,149 @@ paths:
         500:
           description: Internal Server Error
 
+  /dropdown/{listName}:
+    get:
+      summary: Get items for a specific dropdown list
+      parameters:
+        - name: listName
+          in: path
+          required: true
+          description: Name of the dropdown list
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of dropdown items
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    ID:
+                      type: integer
+                      description: Unique identifier for the dropdown item
+                    ListName:
+                      type: string
+                      description: Name of the dropdown list
+                    Label:
+                      type: string
+                      description: Display label for the dropdown item
+                    Sort_Order:
+                      type: integer
+                      description: Sorting order for the dropdown item
+        '404':
+          description: No items found for this list
+        '500':
+          description: Failed to fetch dropdown items
+
+  /dropdown:
+    post:
+      summary: Add a new dropdown item
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ListName:
+                  type: string
+                  description: Name of the dropdown list
+                Label:
+                  type: string
+                  description: Display label for the dropdown item
+                Sort_Order:
+                  type: integer
+                  description: Sorting order for the dropdown item
+      responses:
+        '201':
+          description: Dropdown item created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ID:
+                    type: integer
+                    description: Unique identifier for the new dropdown item
+                  ListName:
+                    type: string
+                  Label:
+                    type: string
+                  Sort_Order:
+                    type: integer
+        '500':
+          description: Failed to add dropdown item
+
+  /dropdown/{id}:
+    put:
+      summary: Update an existing dropdown item
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Unique identifier of the dropdown item to update
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ListName:
+                  type: string
+                Label:
+                  type: string
+                Sort_Order:
+                  type: integer
+      responses:
+        '200':
+          description: Dropdown item updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ID:
+                    type: integer
+                  ListName:
+                    type: string
+                  Label:
+                    type: string
+                  Sort_Order:
+                    type: integer
+        '404':
+          description: Dropdown item not found
+        '500':
+          description: Failed to update dropdown item
+
+    delete:
+      summary: Delete a dropdown item
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Unique identifier of the dropdown item to delete
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Dropdown item deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        '404':
+          description: Dropdown item not found
+        '500':
+          description: Failed to delete dropdown item
 components:
   schemas:
     Account:
@@ -1114,3 +1257,99 @@ components:
         IsActive:
           type: boolean
           description: Whether the user is active
+
+    DropdownItem:
+      type: object
+      properties:
+        ID:
+          type: integer
+          description: Unique identifier for the dropdown item
+        ListName:
+          type: string
+          description: Name of the dropdown list
+        Label:
+          type: string
+          description: Display label for the dropdown item
+        Sort_Order:
+          type: integer
+          description: Sorting order for the dropdown item
+
+    CreateDropdownItem:
+      type: object
+      required:
+        - ListName
+        - Label
+        - Sort_Order
+      properties:
+        ListName:
+          type: string
+          description: Name of the dropdown list
+        Label:
+          type: string
+          description: Display label for the dropdown item
+        Sort_Order:
+          type: integer
+          description: Sorting order for the dropdown item
+
+    UpdateDropdownItem:
+      type: object
+      properties:
+        ListName:
+          type: string
+          description: Name of the dropdown list
+        Label:
+          type: string
+          description: Display label for the dropdown item
+        Sort_Order:
+          type: integer
+          description: Sorting order for the dropdown item
+
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Description of the error
+
+  parameters:
+    ListName:
+      name: listName
+      in: path
+      required: true
+      description: Name of the dropdown list
+      schema:
+        type: string
+
+    ItemId:
+      name: id
+      in: path
+      required: true
+      description: Unique identifier for the dropdown item
+      schema:
+        type: integer
+
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+
+    InternalServerError:
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+
+    SuccessMessage:
+      description: Operation successful
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                description: Success message
