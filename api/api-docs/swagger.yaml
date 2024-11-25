@@ -577,7 +577,7 @@ paths:
         500:
           description: Internal Server Error
 
-  /dropdown/{listName}:
+  /dropdowns/{listName}:
     get:
       summary: Get items for a specific dropdown list
       parameters:
@@ -614,7 +614,7 @@ paths:
         '500':
           description: Failed to fetch dropdown items
 
-  /dropdown:
+  /dropdowns:
     post:
       summary: Add a new dropdown item
       requestBody:
@@ -653,7 +653,7 @@ paths:
         '500':
           description: Failed to add dropdown item
 
-  /dropdown/{id}:
+  /dropdowns/{id}:
     put:
       summary: Update an existing dropdown item
       parameters:
